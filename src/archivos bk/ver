@@ -1,0 +1,56 @@
+
+sysadmin :0           2016-05-31 10:27 (:0)
+sysadmin pts/0        2016-05-31 10:46 (:0)
+sysadmin pts/19       2016-05-31 10:58 (:0)
+
+
+Filesystem      Size  Used Avail Use% Mounted on
+udev            479M     0  479M   0% /dev
+tmpfs           100M  5,4M   94M   6% /run
+/dev/sda1       109G  5,1G   99G   5% /
+tmpfs           496M  492K  496M   1% /dev/shm
+tmpfs           5,0M  4,0K  5,0M   1% /run/lock
+tmpfs           496M     0  496M   0% /sys/fs/cgroup
+cgmfs           100K     0  100K   0% /run/cgmanager/fs
+tmpfs           100M   60K  100M   1% /run/user/1000
+
+
+
+Starting Nmap 6.47 ( http://nmap.org ) at 2016-05-31 12:50 CST
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.00069s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE
+631/tcp  open  ipp
+3306/tcp open  mysql
+8080/tcp open  http-proxy
+
+Nmap done: 1 IP address (1 host up) scanned in 0.11 seconds
+
+sysadmin :0           2016-05-31 10:27 (:0)
+sysadmin pts/0        2016-05-31 10:46 (:0)
+sysadmin pts/19       2016-05-31 10:58 (:0)
+
+
+Filesystem      Size  Used Avail Use% Mounted on
+udev            479M     0  479M   0% /dev
+tmpfs           100M  5,4M   94M   6% /run
+/dev/sda1       109G  5,1G   99G   5% /
+tmpfs           496M  492K  496M   1% /dev/shm
+tmpfs           5,0M  4,0K  5,0M   1% /run/lock
+tmpfs           496M     0  496M   0% /sys/fs/cgroup
+cgmfs           100K     0  100K   0% /run/cgmanager/fs
+tmpfs           100M   60K  100M   1% /run/user/1000
+
+
+
+Starting Nmap 6.47 ( http://nmap.org ) at 2016-05-31 12:53 CST
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.00069s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE
+631/tcp  open  ipp
+3306/tcp open  mysql
+8080/tcp open  http-proxy
+
+Nmap done: 1 IP address (1 host up) scanned in 0.11 seconds

@@ -1,0 +1,12 @@
+[   23.275610] audit: type=1400 audit(1464538245.064:11): apparmor="STATUS" operation="profile_load" profile="unconfined" name="sanitized_helper" pid=436 comm="apparmor_parser"
+[   25.437029] cgroup: new mount options do not match the existing superblock, will be ignored
+[   37.698228] IPv6: ADDRCONF(NETDEV_UP): enp5s0: link is not ready
+[   37.705244] r8169 0000:05:00.0 enp5s0: link down
+[   37.705297] IPv6: ADDRCONF(NETDEV_UP): enp5s0: link is not ready
+[   37.710803] IPv6: ADDRCONF(NETDEV_UP): wlp4s0: link is not ready
+[   37.721114] IPv6: ADDRCONF(NETDEV_UP): wlp4s0: link is not ready
+[   37.829877] audit_printk_skb: 42 callbacks suppressed
+[   37.829884] audit: type=1400 audit(1464538259.620:26): apparmor="DENIED" operation="open" profile="/usr/sbin/mysqld" name="/usr/my.cnf" pid=996 comm="mysqld" requested_mask="r" denied_mask="r" fsuid=120 ouid=0
+[   37.951046] IPv6: ADDRCONF(NETDEV_UP): wlp4s0: link is not ready
+kernel-tail
+varibles.sh

@@ -1,0 +1,20 @@
+
+gnuplot> xdata time
+         ^
+         line 0: invalid command
+
+
+gnuplot> timefmt " %Y %m %d %H %M"
+         ^
+         line 0: invalid command
+
+
+gnuplot> xrange ["20110206 0000" : "20110206 0200"]
+         ^
+         line 0: invalid command
+
+
+gnuplot> using 2 with linespoints title "Indice de radiacion KW/m2 Max"
+         ^
+         line 0: invalid command
+

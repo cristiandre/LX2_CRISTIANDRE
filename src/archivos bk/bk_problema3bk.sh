@@ -1,0 +1,90 @@
+#!/bin/bash
+#!/usr/bin/gnuplot
+
+ORIG=/home/sysadmin/lx2_cristiandre/problema3
+DATA=/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/datos_csv
+
+FULL_DATA=/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos
+OUT_DATA=$DATA/datos_csv
+GRAF_DATA=/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/datos_graf
+
+
+# las funciones se deben de declarar arriba sino no las ejecuta
+#bash debe de cargarlas en memoria
+
+function mover ()
+{
+echo $ORIG
+for file in '$ORIG  -d *' ; do
+   find . -name *.* -mtime -10 -exec cp $"file" $DATA {} ;
+echo'seguimos moviendo archivos Datos'
+done
+
+}
+
+
+function graficar ()
+{
+#echo $opt
+#b="Grafico de valores Kw>$opt" 
+
+F=$FULL_DATA/g3_full.dat
+rm -r -f $FULL_DATA/plot #borra recursivamente (-r) y silenciosamente (-f) 
+mkdir $FULL_DATA/plot 
+C=$FULL_DATA/plot/grafico3.png
+
+FMT_BEGIN='20110206 0000'
+FMT_END='20110206 0200'
+#FMT_X_SHOW=%H: %M
+DATA_DONE=$FULL_DATA/full.dat
+t1="Indice de radiacion KW/m2 Max"
+t2="Indice de radiacion KW/m2 Max"
+
+gnuplot << EOF 2> error.log
+xdata time
+timefmt " %Y %m %d %H %M"
+xrange ["$FMT_BEGIN" : "$FMT_END"]
+set terminal png
+set output "$C"
+plot "$F" using 1 with linespoints title "$t1",
+"$C" using 2 with linespoints title "$t2"
+EOF
+}
+
+function mover ()
+{
+echo $ORIG
+for file in `$ORIG  -d *` ; do
+   find . -name *.* -mtime -10 -exec cp $"file" $DATA {} ;
+echo'seguimos moviendo archivos Datos'
+done
+
+}
+
+mkdir $DATA
+mkdir $GRAF_DATA
+mkdir $FULL_DATA
+#mover
+#cp $ORIG/'Datos' $DATA ## muevo el archivo de problema3 a la ruta de donde se toma para procesar
+echo "Borrando las lineas de encabezados del archivo Data_problema3"
+sed '1,4d' $DATA/Datos > $GRAF_DATA/graf.dat
+ls -la $GRAF_DATA
+2> /home/sysadmin/lx2_cristiandre/logs/error_quitaencabezados3.log
+
+#########se borra el archivo full si existe ###
+#if [ -a $FULL_DATA/g3_full.dat]
+#then
+#   rm -r $FULL_DATA/g3_full.dat
+#   echo "Archivo g3_full.dat borrado"
+#   pwd
+#   ls -la $FULL_DATA
+#fi 2> /home/sysadmin/lx2_cristiandre/logs/error_borraFull3Data.log
+
+####creando el archivo nuevamente###
+echo "Procesando archivo g3_full.dat sin comillas "
+cat $GRAF_DATA/graf.dat | awk -F "," '{print $6 " " $7}' | sed '1,$ s/"//g' >> $FULL_DATA/g3_full.dat
+ls -la $FULL_DATA
+2>/home/sysadmin/lx2_cristiandre/logs/error_Creandog3_full.dat.log
+
+
+graficar 
