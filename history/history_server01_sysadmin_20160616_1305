@@ -1,0 +1,3224 @@
+    1  sudo apt-get update
+    2  sudo apt-get upgrade
+    3  HOSTNAME
+    4  hostname
+    5  mkdir history_root_server01
+    6  mkdir lx1_cristiandre
+    7  cd lx1_cristiandre/
+    8  touch history_history_server01
+    9  history > history_history_server01 
+   10  cat history_history_server01 
+   11  # procedemos con la instalacion LAMP
+   12  cd
+   13  sudo apt-get install apache2
+   14  #verificamos si esta arriba
+   15  /etc/init.d/apache2 status
+   16  /etc/init.d/apache2 restart
+   17  ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
+   18  curl http://icanhazip.com
+   19  sudo apt-get install mysql-server php5-mysql
+   20  sudo mysql_install_db
+   21  sudo mysql_secure_installation
+   22  sudo apt-get install php5 libapache2-mod-php5 php5-mcrypt
+   23  sudo nano /etc/apache2/mods-enabled/dir.conf
+   24  sudo service apache2 restart
+   25  apt-cache search php5-
+   26  sudo apt-get install php5-cli
+   27  sudo nano /var/www/html/info.php
+   28  ip -4 addr
+   29  cd /var/www/
+   30  ls -la
+   31  cd html/
+   32  ls
+   33  cd
+   34  cd /etc/apache2/
+   35  ld
+   36  ls
+   37  cd sites-available/
+   38  ls
+   39  nano 000-default.conf 
+   40  cd
+   41  # ahora toca Virtual Host de Apache
+   42  # 1 Crear la Estructura del Directorio
+   43  #  la estructura de directorios que mantendrán la información de nuestro sitio
+   44  sudo mkdir -p /var/www/pruebas.com/public_html
+   45  sudo chown -R $USER:$USER /var/www/pruebas.com/public_html
+   46  # en el paso anterior dabamos los permisos Si queremos que nuestro usuario regular pueda modificar los archivos en nuestro directorio web, necesitamos cambiar el propietario
+   47  #La variable $USER tomará el valor del usuario con el cual actualmente estás identificado. Al hacer esto, nuestro usuario regular ahora es propietario de los directorios public_html donde se almacenará nuestro contenido
+   48  #Debemos además modificar los permisos un poco para asegurarnos que el permiso de lectura pueda ser aplicado a archivos y directorios para que las páginas puedan ser desplegadas correctamente
+   49  sudo chmod -R 755 /var/www
+   50  #Vamos a crear contenido para mostrar
+   51  sudo mkdir -p /var/www/ejemplo.com/public_html
+   52  sudo chown -R $USER:$USER /var/www/ejemplo.com/public_html
+   53  sudo chmod -R 755 /var/www
+   54  nano /var/www/ejemplo.com/public_html/index.html
+   55  cp /var/www/ejemplo.com/public_html/index.html /var/www/pruebas.com/public_html/index.html
+   56  nano /var/www/pruebas.com/public_html/index.html
+   57  #Crear Nuevos Archivos Virtual Host
+   58  #Los archivos Virtual Host son archivos que contienen información y configuración específica para el dominio y que le indican al servidor Apache como responden a las peticiones de varios dominios.
+   59  cd /etc/apache2/sites-available
+   60  ls
+   61  cd
+   62  sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/ejemplo.com.conf
+   63  sudo nano /etc/apache2/sites-available/ejemplo.com.conf
+   64  sudo cp /etc/apache2/sites-available/ejemplo.com.conf /etc/apache2/sites-available/pruebas.com.conf
+   65  sudo nano /etc/apache2/sites-available/pruebas.com.conf
+   66  sudo nano /etc/apache2/sites-available/ejemplo.com.conf
+   67  sudo nano /etc/apache2/sites-available/pruebas.com.conf
+   68  sudo a2ensite ejemplo.com.conf
+   69  sudo a2ensite pruebas.com.conf
+   70  sudo service apache reload
+   71  sudo service apache2 reload
+   72  sudo nano /etc/apache2/sites-available/ejemplo.com.conf
+   73  sudo nano /etc/apache2/sites-available/pruebas.com.conf
+   74  sudo service apache2 reload
+   75  sudo nano /etc/apache2/sites-available/pruebas.com.conf
+   76  sudo nano /etc/apache2/sites-available/ejemplo.com.conf
+   77  sudo a2ensite pruebas.com.conf
+   78  sudo a2ensite ejemplo.com.conf
+   79  sudo service apache2 reload
+   80  sudo nano /etc/hosts
+   81  sudo nano /etc/apache2/sites-available/ejemplo.com.conf
+   82  sudo nano /etc/apache2/sites-available/pruebas.com.conf
+   83  sudo a2ensite ejemplo.com.conf
+   84  sudo a2ensite pruebas.com.conf
+   85  sudo service apache2 reload
+   86  sudo service apache2 restart
+   87  sudo service apache2 reload
+   88  ip -4 addr
+   89  sudo nano /etc/hosts
+   90  sudo nano /etc/apache2/sites-available/pruebas.com.conf
+   91  sudo a2ensite pruebas.com.conf
+   92  sudo service apache2 restart
+   93  sudo service apache2 reload
+   94  sudo nano /etc/apache2/sites-available/ejemplo.com.conf
+   95  sudo a2ensite pruebas.com.conf
+   96  sudo nano /etc/apache2/sites-available/pruebas.com.conf
+   97  sudo a2ensite pruebas.com.conf
+   98  sudo service apache2 restart
+   99  sudo service apache2 reload
+  100  cd /etc/apache2/
+  101  cd sites-available/
+  102  ls
+  103  nano 000-default.conf 
+  104  sudo nano 000-default.conf 
+  105  cd
+  106  cd /var/
+  107  ls -la
+  108  cd www/
+  109  ls
+  110  cd pruebas.com/
+  111  ls
+  112  nano public_html/
+  113  cd public_html/
+  114  ls
+  115  nano index.html 
+  116  cd
+  117  sudo a2ensite pruebas.com.conf
+  118  sudo service apache2 restart
+  119  sudo service apache2 reload
+  120  ls
+  121  cd lx1_cristiandre/
+  122  ls
+  123  nano history_history_server01 
+  124  mkdr history_apache
+  125  mkdir history_apache
+  126  touch historial_apache
+  127  history >historial_apache 
+  128  nano historial_apache 
+  129  cd
+  130  sudo nano 000-default.conf 
+  131  sudo nano /etc/apache2/sites-available/pruebas.com.conf
+  132  sudo a2ensite pruebas.com.conf
+  133  sudo service apache2 restart
+  134  sudo service apache2 reload
+  135  mysql -u root -p
+  136  cd ~
+  137  pwd
+  138  mysql -u root -p
+  139  sudo apt-get update
+  140  apt-get install php5-gd php5-curl libssh2-php
+  141  sudo apt-get install php5-gd php5-curl libssh2-php
+  142  #haciendo cambos en el php ini 
+  143  sudo nano /etc/php5/apache2/php.ini
+  144  sudo a2enmod rewrite
+  145  sudo nano /etc/apache2/sites-enabled/000-default.conf
+  146  sudo service apache2 restart
+  147  sudo service apache2 reload
+  148  wget http://ftp.drupal.org/files/projects/drupal-7.32.tar.gz
+  149  tar xzvf drupal*
+  150  cd drupal*
+  151  sudo rsync -avz . /var/www/html
+  152  cd /var/www/html
+  153  ls
+  154  cd sites/
+  155  ls
+  156  cd default/
+  157  ls
+  158  mkdir files
+  159  ls
+  160  cd files/
+  161  cd ../
+  162  ls
+  163  #debemos copiar el archivo de configuración por defecto para el nombre de archivo que utiliza Drupal para la configuración activa
+  164  ls
+  165  cp /var/www/html/sites/default/default.settings.php /var/www/html/sites/default/settings.php
+  166  #esto activa temporalmente los permisos para proceder con la instalacion de drupal
+  167  # es conveniente remover los permisos despues de la instalacion
+  168  chmod 664 /var/www/html/sites/default/settings.php
+  169  # tenemos que dar a la propiedad del grupo de nuestros archivos al usuario de la web , que en Ubuntu es www-data
+  170  sudo chown -R :www-data /var/www/html/*
+  171  ls
+  172  nano settings.php 
+  173  sudo nano settings.php 
+  174  /etc/apache2/sites-available
+  175  cd
+  176  cd /etc/apache2/sites-available
+  177  ls
+  178  nano ejemplo.com.conf 
+  179  CD
+  180  cd
+  181  sudo a2ensite ejemplo.com.conf
+  182  sudo service apache2 restart
+  183  sudo service apache2 reloa
+  184  sudo service apache2 reload
+  185  sudo nano /etc/hosts
+  186  nano /var/www/ejemplo.com/public_html/index.html
+  187  cd /etc/apache2/sites-available
+  188  ls
+  189  cd /var/www/html/sites/default/
+  190  ls
+  191  # chmod 664 /var/www/html/sites/default/settings.php
+  192  #sudo chown -R :www-data /var/www/html/*
+  193  cd
+  194  nmap 10.124.18.174
+  195  apt-get install nmap
+  196  sudo apt-get install nmap
+  197  nmap 10.124.18.174
+  198  nmap 10.124.18.247
+  199  cd /var/www/html/sites/default/settings.php
+  200  nano /var/www/html/sites/default/settings.php
+  201  cd /etc/apache2/
+  202  ls
+  203  cd sites-
+  204  cd sites-enabled/
+  205  ls
+  206  nano pruebas.com.conf 
+  207  ip -4 addr
+  208  nano pruebas.com.conf 
+  209  sudo nano pruebas.com.conf 
+  210  sudo service apache2 restart
+  211  sudo nano pruebas.com.conf 
+  212  cd 
+  213  cd /var/www/html/sites/default/
+  214  ls
+  215  nano seting
+  216  ls
+  217  sudo nano settings.php 
+  218  cd files
+  219  ls
+  220  cd
+  221  cd /etc/host
+  222  cd /etc/hosts
+  223  cd /etc/
+  224  ls
+  225  nano host
+  226  nano hosts
+  227  exit
+  228  cd home
+  229  sudo su
+  230  history 
+  231  exit
+  232  su -i
+  233  mysql -u p @localhost
+  234  mysql -u root -p
+  235  exit
+  236  vim hosts
+  237  nano hosts
+  238  vim hosts
+  239  nano hosts
+  240  vim  hosts
+  241  sudo su
+  242  exit
+  243  sudi -i
+  244  sud -i
+  245  sudo -i
+  246  /.bashrc
+  247  ~/.bashrc
+  248  sudo -s  ~/.bashrc
+  249  cd /home/sysadmin/.bashrc
+  250  nano /home/sysadmin/.bashrc
+  251  sudo nano /home/sysadmin/.bashrc
+  252  cd lx1_cristiandre/
+  253  mkdir history
+  254  ls
+  255  history
+  256  ls
+  257  cd history/
+  258  history >> history_sysadmin-srv00  # History del server (usuario)
+  259  ls
+  260  history >> history_sysadmin-$HOSTNAME  # History del server (sysadmin)
+  261  ls
+  262  rm history_sysadmin-srv00 
+  263  ls
+  264  mysql -u root -p
+  265  .mysql_history
+  266  ~/.bashrc
+  267  cat ~/.mysql_history 
+  268  ~/.mysql_history >> mysql_history-$HOSTNAME   # History de mysql 
+  269  sudo~/.mysql_history >> mysql_history-$HOSTNAME   # History de mysql 
+  270  sudo ~/.mysql_history >> mysql_history-$HOSTNAME   # History de mysql 
+  271  nano ~/.mysql_history 
+  272  ~/.mysql_history >> mysql_history-$HOSTNAME   # History de mysql 
+  273  cd ../
+  274  ~/.mysql_history
+  275  cd home
+  276  cd /home/
+  277  cd sysadmin/
+  278  ~/.mysql_history
+  279  cd ~/.mysql_history
+  280  mysql -u root -p
+  281  cd ~/.mysql_history
+  282  ls
+  283  pwd
+  284  cp ~/.mysql_history >> /home/sysadmin/lx1_cristiandre/mysql_history-$HOSTNAME   # History de mysql
+  285  cp ~/.mysql_history >> home/sysadmin/lx1_cristiandre/mysql_history-$HOSTNAME   # History de mysql
+  286  cp ~/.mysql_history >> /home/sysadmin/lx1_cristiandre/history/mysql_history-$HOSTNAME   # History de mysql
+  287  cp /.mysql_history >> /home/sysadmin/lx1_cristiandre/history/mysql_history-$HOSTNAME   # History de mysql
+  288  cp ~/.mysql_history >> /home/sysadmin/lx1_cristiandre/history/mysql_history-$HOSTNAME   # History de mysql
+  289  cp ~/.mysql_history >> /home/sysadmin/lx1_cristiandre/history/mysql_history-$HOSTNAME   # History de mysql
+  290  ls
+  291  cd lx1_cristiandre/
+  292  ls
+  293  history
+  294  ls
+  295  pwd
+  296  cp ~/.mysql_history >> /home/sysadmin/lx1_cristiandre/history/mysql_history-$HOSTNAME
+  297  cp ~/.mysql_history >> /home/sysadmin/lx1_cristiandre/history mysql_history-$HOSTNAME
+  298  cp ~/.mysql_history >> /home/sysadmin/lx1_cristiandre/history/mysql_history-$HOSTNAME
+  299  cp ~/.mysql_history >> ./mysql_history-$HOSTNAME
+  300  cp ~/.mysql_history > ./mysql_history-$HOSTNAME
+  301  cat ~/.mysql_history
+  302  cp ~/.mysql_history >> mysql_history-$HOSTNAME
+  303  cd
+  304  ls -a
+  305  nano .mysql_history 
+  306  cp .mysql_history >> /home/sysadmin/lx1_cristiandre/history/mysql_history-$HOSTNAME
+  307  cp mysql_history >> /home/sysadmin/lx1_cristiandre/history/mysql_history-$HOSTNAME
+  308  cp .mysql_history >> /home/sysadmin/lx1_cristiandre/history/mysql_history-$HOSTNAME
+  309  cp .mysql_history  /home/sysadmin/lx1_cristiandre/history/mysql_history-$HOSTNAME
+  310  sudo -i
+  311  cd lx1_cristiandre/
+  312  ls
+  313  cd history/
+  314  mkdir LAMP
+  315  ls 
+  316  cd lamp 
+  317  cd LAMP
+  318  mkdir apache2
+  319  ls
+  320  sudo cp /etc/apache2/sites-available/000-default.conf ~/lx1_cristiandre/history/LAMP/apache2/000-default.conf
+  321  cd /etc/apache2/sites-available/
+  322  ls
+  323  sudo cp /etc/apache2/sites-available/pruebas.com.conf ~/lx1_cristiandre/history/LAMP/apache2/pruebas.com.conf
+  324  cd
+  325  cd lx1_cristiandre/ls
+  326  cd lx1_cristiandre/history/
+  327  ls
+  328  cd LAMP
+  329  ls
+  330  cd apache2/
+  331  mkdir screenshots
+  332  cd 
+  333  cd /etc/host/
+  334  cd /etc/hosts
+  335  cd /etc/
+  336  ls
+  337  nano hosts
+  338  ip -4 addr
+  339  sudo hosts
+  340  sudo nano hosts
+  341  sudo service apache2 restart
+  342  sudo service apache2 reload
+  343  cd
+  344  cd lx1_cristiandre/
+  345  cd history/
+  346  cd LAMP
+  347  mkdir sites
+  348  cd sites
+  349  mkdir default
+  350  cd
+  351  cd /var/www/
+  352  ls
+  353  cd
+  354  ls
+  355  cd /var/www/
+  356  cd
+  357  git init
+  358  sudo apt-get install git
+  359  git init
+  360  cd
+  361  cd lx1_cristiandre/
+  362  git init
+  363  ls
+  364  git add history/
+  365  sudo git add history/
+  366  git status
+  367  git add mysql_history-server01
+  368  git status
+  369  git commit -m "subiendo la informacion de la tarea"
+  370  git config --global user.email "cristian.andre2012@gmail.com"
+  371  git config --global user.name "Cristian Andre"
+  372  git status
+  373  git remote add repo.lx1_cristian https://github.com/cristiandre/lx1_cristian.git
+  374  git remote -v
+  375  git push -u repo.git master
+  376  git push -u repo.github master
+  377  git pull --rebase origin master
+  378  git push origin master
+  379  git push -u repo.github master
+  380  git remote add add repo.LX1_CRISTIANDRE https://github.com/cristiandre/LX1_CRISTIANDRE.git
+  381  git remote add repo.LX1_CRISTIANDRE https://github.com/cristiandre/LX1_CRISTIANDRE.git
+  382  git remote -v
+  383  git 
+  384  git push -u repo.github master
+  385  git remote -v
+  386  git reset --mixed origin/master
+  387  git fetch origin
+  388  git status
+  389  git add history/LAMP/apache2/000-default.conf
+  390  git status
+  391  git commit -m history/LAMP/apache2/000-default.conf
+  392  git commit -m history/LAMP/apache2/pruebas.com.conf
+  393  git status
+  394  git remote add repo.LX1_CRISTIANDRE https://github.com/cristiandre/LX1_CRISTIANDRE.git
+  395  git remote -v
+  396  git push -u repo.LX1_CRISTIANDRE master
+  397  git status
+  398  git pull
+  399  git pull https://github.com/cristiandre/LX1_CRISTIANDRE.git
+  400  ls
+  401  cd history 
+  402  ls
+  403  cd lamp
+  404  cd LAMP
+  405  LS
+  406  CD ..
+  407  cd ../
+  408  git init
+  409  git statu
+  410  git status
+  411  git add ./*
+  412  git status
+  413  git add *
+  414  git status
+  415  cd git
+  416  ls
+  417  cd ../
+  418  ls
+  419  cd lx1_cristiandre/
+  420  history
+  421  cd
+  422  ~/.gitconfig
+  423  sudo ~/.gitconfig
+  424  ls
+  425  git diff
+  426  git diff --cached
+  427  git init
+  428  cd lx1_cristiandre/
+  429  git init
+  430  ls
+  431  cd /.git
+  432  cd history/
+  433  ls
+  434  cd
+  435  git add /lx1_cristiandre/history
+  436  git add lx1_cristiandre/history
+  437  sudo git add lx1_cristiandre/history
+  438  git status 
+  439  git add /home/sysadmin/lx1_cristiandre/
+  440  git status
+  441  ls
+  442  cd lx1_cristiandre/
+  443  ls
+  444  git add history/
+  445  git status
+  446  cd history/
+  447  ls
+  448  git add history-root-server01 
+  449  git status
+  450  git add *
+  451  git status
+  452  sudo git add *
+  453  git status
+  454  sudo git status
+  455  ls
+  456  git init
+  457  cd ../
+  458  ls
+  459  git add /home/sysadmin/lx1_cristiandre
+  460  git status
+  461  git add /home/sysadmin/lx1_cristiandre/history/
+  462  git status
+  463  cd history/
+  464  git status
+  465  git add *
+  466  sudo git add *
+  467  git status
+  468  git commit -m "archivos de la tarea"
+  469  git commit --amend
+  470  sudo git commit --amend
+  471  rm .gitconfig
+  472  git status
+  473  sudo git add *
+  474  git status
+  475  git config add repo.github https://github.com/cristiandre/lx1_cristian.git
+  476  git remote add repo.github https://github.com/cristiandre/lx1_cristian.git
+  477  git remote -v
+  478  git remote add repo.github https://github.com/cristiandre/LX1_CRISTIANDRE.git
+  479  git remote -v
+  480  git remote add repo.LX1_CRISTIANDRE https://github.com/cristiandre/LX1_CRISTIANDRE.git
+  481  git remote -v
+  482  git push -u repo.LX1_CRISTIANDRE master
+  483  sudo git add *
+  484  git status
+  485  git add /home/sysadmin/lx1_cristiandre/history/
+  486  git status
+  487  git add /home/sysadmin/lx1_cristiandre/
+  488  git add /home/sysadmin/lx1_cristiandre/history/
+  489  git status
+  490  sudo git add *
+  491  git status
+  492  sudo git add *
+  493  git status
+  494  git add /home/sysadmin/lx1_cristiandre/history/
+  495  git satus
+  496  git status
+  497  git add history-root-server01
+  498  git status
+  499  git add history_sysadmin-server01
+  500  git add mysql_history-server01
+  501  git add LAMP
+  502  git status
+  503  sudo git add *
+  504  git status
+  505  git init
+  506  sudo git add *
+  507  git status
+  508  git commit -m "subiendo la info de la tarea"
+  509  git push -u repo.LX1_CRISTIANDRE master
+  510  git status
+  511  git init
+  512  sudo git add *
+  513  git status
+  514  git remote add repo.LX1_CRISTIANDRE https://github.com/cristiandre/LX1_CRISTIANDRE.git
+  515  git remote -v
+  516  git push -u repo.LX1_CRISTIANDRE
+  517  git push --set-upstream repo.LX1_CRISTIANDRE master
+  518  git push -u repo.LX1_CRISTIANDRE
+  519  git remote add repo.LX1_CRISTIANDRE https://github.com/cristiandre/LX1_CRISTIANDRE.git
+  520  git push -u repo.LX1_CRISTIANDRE
+  521  git config --global push.default simple
+  522  git push -u repo.LX1_CRISTIANDRE
+  523  git push --set-upstream repo.LX1_CRISTIANDRE master
+  524  sudo apt-get install gitk
+  525  gitk
+  526  clear
+  527  ls -la
+  528  cd git
+  529  cd /git
+  530  cd /.git
+  531  cd .git
+  532  ls -la
+  533  cd ../
+  534  git init
+  535  sudo git add *
+  536  ls 
+  537  git status
+  538  cd /.git
+  539  cd .git
+  540  ls -la
+  541  cd ../
+  542  clear
+  543  git status
+  544  git commit -m "subiendo los archivos de la tarea"
+  545  git config --global user.mail "cristian.andre2012@gmail.com"
+  546  git config --global user.name "cristiandre"
+  547  git status
+  548  git init
+  549  sudo git add *
+  550  git status
+  551  git init
+  552  sudo git add *
+  553  git status
+  554  git commit --amend --reset-author
+  555  git config --global user.mail "cristian.andre2012@gmail.com"
+  556  git config --global user.name "cristiandre"
+  557  tree .git/
+  558  sudo apt-get install tree
+  559  tree .git/
+  560  sudo git add *
+  561  git staus
+  562  git status
+  563  tree .git/
+  564  git remote add repo.LX1_CRISTIANDRE https://github.com/cristiandre/LX1_CRISTIANDRE.git
+  565  git remote -v
+  566  git push -u repo.LX1_CRISTIANDRE master
+  567  git push -u repo.LX1_CRISTIANDRE master --force
+  568  git commit -m "subiendo tarea"
+  569  git remote -v
+  570  git push -u repo.LX1_CRISTIANDRE master --force
+  571  history > ./history_SUBIRrepo_$HOSTNAME
+  572  LS
+  573  ls
+  574  nano history_SUBIRrepo_server01 
+  575  cd
+  576  sudo apt-get update
+  577  sudo apt-get install libapache2-mod-php5
+  578  /etc/init.d/apache2 restart
+  579  vim /var/www/html/
+  580  sudo apt-get install vim
+  581  vim /var/www/html/
+  582  cd /var/www/html/
+  583  ls
+  584  vim info.php 
+  585  cd
+  586  cd /etc/
+  587  ls
+  588  vim hosts
+  589  sudo vim hosts
+  590  sudo nano host
+  591  nano host
+  592  sudo vim host
+  593  ls
+  594  vim hosts
+  595  sudo vim hosts
+  596  nano hosts
+  597  sudo vim hosts
+  598  sudo nano  hosts
+  599  su -i
+  600  sudo -s
+  601  cd /etc/apache2/sites-available/000-default.conf
+  602  nano /etc/apache2/sites-available/000-default.conf
+  603  sudo nano /etc/apache2/sites-available/000-default.conf
+  604  sudo service apache2 restart
+  605  sudo nano /etc/apache2/sites-available/000-default.conf
+  606  sudo service apache2 restart
+  607  sudo nano /etc/apache2/sites-available/000-default.conf
+  608  sudo service apache2 restart
+  609  sudo nano /etc/apache2/sites-available/000-default.conf
+  610  sudo service apache2 restart
+  611  sudo nano /etc/apache2/sites-available/000-default.conf
+  612  sudo service apache2 restart
+  613  sudo nano /etc/apache2/sites-available/000-default.conf
+  614  sudo service apache2 restart
+  615  journalctl
+  616  sudo service apache2 restart
+  617  systemctl status apache2.service
+  618  sudo vim /etc/apache2/sites-available/000-default.conf
+  619  sudo nano /etc/apache2/sites-available/000-default.conf
+  620  sudo service apache2 restart
+  621  sudo service apache2 reload
+  622  sudo service apache2 restart
+  623  apt-get install libapache2-mod-auth-mysql php5-mysql phpmyadmin -y
+  624  apt-get install libapache2-mod-auth-mysql php5-mysql phpmyadmin 
+  625  sudo apt-get install libapache2-mod-auth-mysql php5-mysql phpmyadmin 
+  626  sudo apt-get install libapche2-mod-auth-mysql php5-mysql phpmyadmin 
+  627  sudo apt-get install libapache2-mod-auth-mysql 
+  628  sudo apt-get install libapache2-mod-auth-mysql php5-mysql phpmyadmin 
+  629  sudo apt-get install php5-mysql libapache2-mod-auth-mysql
+  630  sudo apt-get install php5-mysql phpmyadmin
+  631  sudo -i
+  632  cd
+  633  ls
+  634  cd /var/www/html/
+  635  ls
+  636  cd
+  637  home
+  638  ls
+  639  cp drupal-7.32.tar.gz /var/www/html/
+  640  cd /var/www/html/
+  641  ls
+  642  tar -xzf drupal-7.32.tar.gz 
+  643  ls -al
+  644  cd drupal-7.32/
+  645  ls
+  646  chow -R www-data:www-data
+  647  chown -R www-data:www-data
+  648  chown  www-data:www-data -R*
+  649  chown www-data:www-data -R *
+  650  sudo chown www-data:www-data -R *
+  651  cd /etc/apache2/sites-available/
+  652  cp 000-default.conf misitio.conf
+  653  sudo cp 000-default.conf misitio.conf
+  654  sudo nano misitio.conf 
+  655  exit
+  656  history
+  657  var=1234
+  658  $var
+  659  var=123422344
+  660  $var
+  661  echo $var
+  662  unset var
+  663  echo $var
+  664  fdisk -1
+  665  fdisk
+  666  fdisk 
+  667  ssytem-config-lvm
+  668  system-config-lvm
+  669  sudo apt-get install system-config-lvm
+  670  system-config-lvm
+  671  sudo apt-get update
+  672  sudo apt-get upgrate
+  673  sudo apt-get upgrated
+  674  sudo apt-get vim-nox
+  675  cd /etc/
+  676  ls
+  677  vim fstab
+  678  cat history
+  679  cd /etc/
+  680  vim fstab
+  681  sysadmin@server01:~$ cat history
+  682  cat: history: No such file or directory
+  683  sysadmin@server01:~$ cd /etc/
+  684  sysadmin@server01:/etc$ vim fstab
+  685  sysadmin@server01:/etc$ 
+  686  sudo fdisk -l
+  687  sudo apt-get install lvm2
+  688  sudo su -s
+  689  sudo su -
+  690  ls
+  691  firefox
+  692  sudo -s firefox
+  693  vim bashrc
+  694  ls -la
+  695  cd /etc/
+  696  ls
+  697  vim bashrc
+  698  cd
+  699  sudo -s firefox
+  700  firefox
+  701  sudo -s firefox
+  702  ~/.bashrc
+  703  vim ~/.bashrc
+  704  exit
+  705  vim bashrc
+  706  cd home
+  707  ls /la
+  708  ls -la
+  709  vim .bashrc
+  710  ls -lha
+  711  sudo apt-get install bum
+  712  vim .bashrc
+  713  fg
+  714  echo $PATH
+  715  wich echo
+  716  wich
+  717  which
+  718  wich
+  719  which ls
+  720  which echo
+  721  phyton
+  722  py
+  723  python
+  724  python prueba.py
+  725  which python
+  726  vim 
+  727  vim
+  728  python prueba.py
+  729  vim prueba
+  730  vim prueba.py
+  731  python prueba.py
+  732  vim prueba.py
+  733  python prueba.py
+  734  vim prueba.py
+  735  python prueba.py
+  736  vim prueba.py
+  737  python prueba.py
+  738  dmesg |
+  739  dmesg | tail > kernel_tail
+  740  cat kernel_tail
+  741  python prueba.py
+  742  vim prueba.py
+  743  python prueba.py
+  744  vim prueba.py
+  745  python prueba.py
+  746  vim prueba.py
+  747  python prueba.py
+  748  vim prueba.py
+  749  python prueba.py
+  750  cd
+  751  ls
+  752  cd lx2_cristiandre/
+  753  ls
+  754  cd src
+  755  ls
+  756  vim varibles.sh 
+  757  vim varibles.sh 
+  758  source varibles.sh 
+  759  vim varibles.sh 
+  760  source varibles.sh 
+  761  vim varibles.sh 
+  762  source varibles.sh 
+  763  vim varibles.sh 
+  764  source varibles.sh 
+  765  clear
+  766  source varibles.sh 
+  767  vim varibles.sh 
+  768  source varibles.sh 
+  769  exit
+  770  source varibles.sh 
+  771  cd lx2_cristiandre/
+  772  echo $PATH
+  773  ls
+  774  ls -la
+  775  ls -lh
+  776  ls -l
+  777  vim ls
+  778  env
+  779  pwd
+  780  echo $HOSTNAME
+  781  CD
+  782  echo $SHELL
+  783  date %y/m/d
+  784  date %y
+  785  date + %y
+  786  date --help
+  787  date
+  788  date +%
+  789  date +y
+  790  date y
+  791  date %yyyy
+  792  date %y
+  793  date %Y
+  794  date +%Y
+  795  date +%Ym
+  796  date +%Y%m
+  797  date +%Y%m%d
+  798  cd /tmp/
+  799  cd
+  800  ls
+  801  mkdir lx2_cristiandre
+  802  cd lx2_cristiandre/
+  803  mkdir history
+  804  mkdir src
+  805  ls
+  806  history > history/history_$HOSTNAME
+  807  TRE
+  808  tree
+  809  \cd srv
+  810  \cd src
+  811  vim vim variables.sh
+  812  vim variables.sh
+  813  ng
+  814  fg
+  815  vim vim varibles.sh
+  816  vim varibles.sh
+  817  screendump
+  818  sudo apt-get install screen
+  819  variables.sh
+  820  varibles.sh
+  821  vim varibles.sh
+  822  varibles.sh
+  823  ls
+  824  rm vim
+  825  ls
+  826  dmesg | tail > kernel-tail
+  827  cat kernel-tail 
+  828  ls
+  829  ls | tail >>kernel-tail 
+  830  cat kernel-tail 
+  831  history > history/history_$HOSTNAME
+  832  df -lh
+  833  du -lh
+  834  cd
+  835  mkdir logs
+  836  ls
+  837  cd lx2_cristiandre/
+  838  mkdir logs
+  839  ls
+  840  tree
+  841  vim varibles.sh
+  842  cd src/
+  843  ls
+  844  varibles.sh
+  845  source varibles.sh
+  846  vim varibles.sh 
+  847  ls
+  848  vim varibles.sh 
+  849  source varibles.sh
+  850  gnome-calculator 
+  851  lkhlha
+  852  gnome-calculator &
+  853  ps aux | tail
+  854  gnome-calculator &
+  855  ps aux | tail
+  856  du -lh
+  857  df -lh
+  858  vim varibles.sh 
+  859  ltuna
+  860  tuna
+  861  grep | tuna
+  862  greep | tuna
+  863  grep | tu
+  864  netstat help
+  865  grep netstat | tun
+  866  vim netstat help 
+  867  netstat help > ver 
+  868  vim ver 
+  869  grep netstat | tun
+  870  grep netstat | tu
+  871  ls
+  872  cd
+  873  cd lx2_cristiandre/
+  874  ls
+  875  cd history/
+  876  ls
+  877  history >> history_server01 
+  878  exit
+  879  ls
+  880  cd
+  881  cd lx2_cristiandre/
+  882  ls
+  883  cd logs/
+  884  ls
+  885  cd
+  886  cd lx2_cristiandre/
+  887  ls
+  888  cd src
+  889  ls
+  890  rm ver
+  891  ls
+  892  ./varibles.sh > $HOSTNAME_`date +%Y%m%d` 2  $HOSTNAME_`date +%Y%m%d`.error
+  893  varibles.sh > $HOSTNAME_`date +%Y%m%d` 2  $HOSTNAME_`date +%Y%m%d`.error
+  894  ./varibles.sh > $HOSTNAME_`date +%Y%m%d` 2  $HOSTNAME_`date +%Y%m%d`.error
+  895  ls
+  896  ls /la
+  897  ls -la
+  898  ./varibles.sh > $HOSTNAME_`date +%Y%m%d` 2  $HOSTNAME_`date +%Y%m%d`.error
+  899  ls -la
+  900  source varibles.sh
+  901  ls -la varibles.sh
+  902  ./varibles.sh > $HOSTNAME_`date +%Y%m%d` 2  $HOSTNAME_`date +%Y%m%d`.error
+  903  vim varibles.sh 
+  904  cd
+  905  ./varibles.sh > miserver_`date +%Y%m%d` 2 miserver_`date +%Y%m%d`.error
+  906  cd lx2_cristiandre/
+  907  c
+  908  ./varibles.sh > miserver_`date +%Y%m%d` 2 miserver_`date +%Y%m%d`.error
+  909  pwd
+  910  ls -la varibles.sh 
+  911  sudo 744 variables.sh
+  912  sudo chmod 744 variables.sh
+  913  ls
+  914  sudo chmod 744 ./variables.sh
+  915  sudo chmod 744 ./varibles.sh
+  916  ls -la varibles.sh 
+  917  ./varibles.sh > miserver_`date +%Y%m%d` 2 miserver_`date +%Y%m%d`.error
+  918  ./varibles.sh > $HOSTNAME_`date +%Y%m%d` 2 $HOSTNAME_`date +%Y%m%d`.error
+  919  vim varibles.sh 
+  920  ./varibles.sh > miserver_`date +%Y%m%d` 2 miserver_`date +%Y%m%d`.error
+  921  vim varibles.sh 
+  922  ./varibles.sh > miserver_`date +%Y%m%d` 2 miserver_`date +%Y%m%d`.error
+  923  vim varibles.sh 
+  924  ./varibles.sh > miserver_`date +%Y%m%d` 2 miserver_`date +%Y%m%d`.error
+  925  ls
+  926  vim 20160529 
+  927  echo help
+  928  echo
+  929  vim varibles.sh 
+  930  ls -la
+  931  ./varibles.sh > $HOSTNAME_`date +%Y%m%d_%h%mm` 2 $HOSTNAME_`date +%Y%m%d_%h%mm`.error 
+  932  ls
+  933  ./varibles.sh > miserver_`date +%Y%m%d_%HH%MM` 2 miserver_`date +%Y%m%d_%HH%MM`.error 
+  934  ls
+  935  vim varibles.sh 
+  936  ./varibles.sh > miserver_`date +%Y%m%d_%HH%MM` 2 miserver_`date +%Y%m%d_%HH%MM`.error 
+  937  ls
+  938  cat miserver_20160529_16H15M 
+  939  vim miserver_20160529_16H15M 
+  940  vim varibles.sh 
+  941  who
+  942  vim varibles.sh 
+  943  ./varibles.sh > miserver_`date +%Y%m%d_%HH%MM` 2 miserver_`date +%Y%m%d_%HH%MM`.error 
+  944  ls
+  945  ./varibles.sh 
+  946  vim varibles.sh 
+  947  $UID
+  948  $UI
+  949  $ID
+  950  uid
+  951  $UID help
+  952  help $uid
+  953  vim varibles.sh 
+  954  $UID
+  955  ./varibles.sh 
+  956  ./varibles.sh > miserver_`date +%Y%m%d_%HH%MM` 2 miserver_`date +%Y%m%d_%HH%MM`.error 
+  957  ./varibles.sh 
+  958  cd Docs 2 > error_cris
+  959  ls
+  960  cd Docs 2> error_cris
+  961  cat error_cris 
+  962  ./varibles.sh > miserver_`date +%Y%m%d_%HH%MM`2 miserver_`date +%Y%m%d_%HH%MM`.error 
+  963  ls 
+  964  cd
+  965  ls
+  966  cd /etc/
+  967  cd /etc/apache2/sites-available/
+  968  ls
+  969  vim ejemplo.com.conf 
+  970  dmesg
+  971  cd
+  972  ls
+  973  cd lx2_cristiandre/
+  974  ls
+  975  cd logs/
+  976  ls
+  977  cd
+  978  cd lx2_cristiandre/
+  979  ls
+  980  cd src
+  981  ls
+  982  vim varibles.sh 
+  983  ./varibles.sh 
+  984  ls
+  985  tree
+  986  vim varibles.sh 
+  987  ./varibles.sh 
+  988  ls
+  989  tree
+  990  ls
+  991  clear
+  992  ls
+  993  vim error.error_sysadmin 
+  994  vim varibles.sh 
+  995  cd
+  996  cd lx2_cristiandre/
+  997  tree
+  998  cd logs/
+  999  ls
+ 1000  cd
+ 1001  cd lx2_cristiandre/
+ 1002  ls
+ 1003  cd src/
+ 1004  ls
+ 1005  vim varibles.sh 
+ 1006  ./varibles.sh 
+ 1007  vim varibles.sh 
+ 1008  ./varibles.sh 
+ 1009  ./varibles.sh > miserver_`date +%Y%m%d_%HH%MM`2 miserver_`date +%Y%m%d_%HH%MM`.error 
+ 1010  ls
+ 1011  vim miserver_20160529_17H14M2 
+ 1012  vim varibles.sh 
+ 1013  ./varibles.sh 
+ 1014  ./varibles.sh > miserver_`date +%Y%m%d_%HH%MM` 2, miserver_`date +%Y%m%d_%HH%MM`.error 
+ 1015  ls
+ 1016  ./varibles.sh > miserver_`date +%Y%m%d_%HH%MM` 2 miserver_`date +%Y%m%d_%HH%MM`.error 
+ 1017  ls
+ 1018  tree
+ 1019  ls
+ 1020  cd
+ 1021  tree
+ 1022  vim varibles.sh 
+ 1023  cd lx2_cristiandre/
+ 1024  ls
+ 1025  cd src
+ 1026  ls
+ 1027  vim varibles.sh 
+ 1028  ./varibles.sh 
+ 1029  ls
+ 1030  cd
+ 1031  cd lx
+ 1032  cd lx2_cristiandre/
+ 1033  tree
+ 1034  ./varibles.sh 
+ 1035  cd src/
+ 1036  ls
+ 1037  tree
+ 1038  ./varibles.sh 
+ 1039  ls -la
+ 1040  ls 
+ 1041  cd
+ 1042  cd lx2_cristiandre/
+ 1043  cd src
+ 1044  cd..
+ 1045  cd.
+ 1046  ls
+ 1047  tree
+ 1048  cd
+ 1049  cd lx2_cristiandre/
+ 1050  tree
+ 1051  cd
+ 1052  tree lx2_cristiandre/
+ 1053  cd lx2_cristiandre/
+ 1054  cd logs 
+ 1055  ls
+ 1056  tree
+ 1057  cd .
+ 1058  cd
+ 1059  cd lx2_cristiandre/
+ 1060  cd src 
+ 1061  ls
+ 1062  vim varibles.sh 
+ 1063  exit
+ 1064  mkdir bin
+ 1065  which ls
+ 1066  cd bin
+ 1067  cp 
+ 1068  cp /bin/ls .
+ 1069  ls
+ 1070  which ls
+ 1071  cd
+ 1072  which ls
+ 1073  cd bin
+ 1074  bash
+ 1075  env PATH=/home/sysadmin/bin:$PATH bash
+ 1076  sudo apt-get update
+ 1077  sudo apt-get upgrade
+ 1078  ls
+ 1079  cd lx2_cristiandre/
+ 1080  ls
+ 1081  cd history/
+ 1082  cd
+ 1083  cd lx2_cristiandre/
+ 1084  mkdir hojasExcel
+ 1085  mkdir hojasDatos
+ 1086  cd hojasDatos/
+ 1087  mkdir datos_csv
+ 1088  tree
+ 1089  cd
+ 1090  cd lx2_cristiandre/
+ 1091  ls
+ 1092  tree
+ 1093  rm hojasDatos/
+ 1094  rmdir -p hojasDatos/
+ 1095  sudo rmdir -p hojasDatos/
+ 1096  cd hojasDatos/
+ 1097  ls
+ 1098  rm datos_csv/
+ 1099  rmdir datos_csv/
+ 1100  ls
+ 1101  cd
+ 1102  cd lx2_cristiandre/
+ 1103  ls
+ 1104  rmdir hojasD
+ 1105  rmdir hojasDatos/
+ 1106  ls
+ 1107  tree
+ 1108  cd hojasExcel/
+ 1109  mkdir hojasDatos
+ 1110  cd
+ 1111  cd2
+ 1112  cd lx2_cristiandre/
+ 1113  tree
+ 1114  cd hojasExcel/
+ 1115  ls
+ 1116  cd hojasDatos/
+ 1117  mkdir datos_csv
+ 1118  cd
+ 1119  cd lx2_cristiandre/
+ 1120  tree
+ 1121  cd hojasExcel/
+ 1122  cd hojasDatos/
+ 1123  cd
+ 1124  cd hojasExcel/
+ 1125  cd lx2_cristiandre/hojasExcel/
+ 1126  mkdir src
+ 1127  cd
+ 1128  cd lx2_cristiandre/
+ 1129  tre
+ 1130  tree
+ 1131  mkdir problema2
+ 1132  tree
+ 1133  mkdir problema3
+ 1134  tree
+ 1135  mkdir src
+ 1136  tree
+ 1137  cd
+ 1138  sudo rpm -Uhv http://packages.sw.be/rpmforge-release/rpmforge-
+ 1139  sudo rpm -Uhv http://packages.sw.be/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm
+ 1140  help rpm
+ 1141  sudo apt-get instal rpm
+ 1142  sudo apt-get install rpm
+ 1143  sudo rpm -Uhv http://packages.sw.be/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm
+ 1144  exit
+ 1145  sudo apt-get update
+ 1146  sudo apt-get upgrade
+ 1147  sudo rpm -Uhv http://packages.sw.be/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm
+ 1148  cd /bin/
+ 1149  ls
+ 1150  cd
+ 1151  sudo apt-get install alien
+ 1152  sudo rpm -ivh http://packages.sw.be/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm
+ 1153  sudo alien -i rpm -ivh http://packages.sw.be/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm
+ 1154  sudo alien -k http://packages.sw.be/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm
+ 1155  ls
+ 1156  cd Downloads/
+ 1157  ls
+ 1158  sudo alien rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm
+ 1159  ls
+ 1160  sudo dpkg -i rpmforge-release-0.5.2-2.el6.rf.x86_64.deb
+ 1161  clear
+ 1162  wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el5.rf.i386.rpm
+ 1163  rpm -Uvh rpmforge-release-0.5.3-1.el5.rf.i386.rpm
+ 1164  cd
+ 1165  /bin/
+ 1166  cd /bin/
+ 1167  cd sh
+ 1168  wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el5.rf.i386.rpm
+ 1169  cd
+ 1170  sudo yum update
+ 1171  yum help
+ 1172  sudo apt-get install yum
+ 1173  sudo yum install catdoc
+ 1174  cd lx2_cristiandre/
+ 1175  ls
+ 1176  cd hojasExcel/
+ 1177  l
+ 1178  cd hojasDatos/
+ 1179  ls
+ 1180  cd datos_csv/
+ 1181  ls
+ 1182  cd
+ 1183  cd lx2_cristiandre/
+ 1184  tree
+ 1185  cd problema2
+ 1186  l
+ 1187  cd proyectoFinal/
+ 1188  ls
+ 1189  xls2csv bills01_2012.xls >>bills01_2012.csv
+ 1190  sudo apt-get install catdoc
+ 1191  xls2csv bills01_2012.xls >>bills01_2012.csv
+ 1192  ls
+ 1193  less 
+ 1194  less bills01_2012.csv 
+ 1195  ls
+ 1196  cd
+ 1197  cd lx2_cristiandre/
+ 1198  ls
+ 1199  tree
+ 1200  cd src
+ 1201  vim problema2.sh
+ 1202  pwd
+ 1203  vim problema2.sh
+ 1204  cd
+ 1205  cd lx2_cristiandre/
+ 1206  cd hojasExcel/
+ 1207  ls
+ 1208  cd hojasDatos/
+ 1209  ls
+ 1210  cd datos_csv/
+ 1211  pwd
+ 1212  cd
+ 1213  cd lx2_cristiandre/
+ 1214  ls
+ 1215  cd problema2
+ 1216  ls
+ 1217  tree
+ 1218  pwd
+ 1219  ls
+ 1220  cd
+ 1221  cd lx2_cristiandre/
+ 1222  tree
+ 1223  cd hojasExcel/
+ 1224  cd hojasDatos/
+ 1225  rm datos_csv/
+ 1226  rmd datos_csv/
+ 1227  rmd datos_csv
+ 1228  ls
+ 1229  cd datos_csv/
+ 1230  ls
+ 1231  cd
+ 1232  cd lx2_cristiandre/
+ 1233  cd hojasExcel/
+ 1234  cd hojasDatos/
+ 1235  rm -R datos_csv
+ 1236  ls
+ 1237  #!/bin/bash
+ 1238  DATA=//home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos
+ 1239  mkdir $DATA/datos_csv
+ 1240  OUT_DATA=$DATA/datos_csv
+ 1241  m=0
+ 1242  for i in `find $DATA #name '*.xls' `; do echo "Procesando archivo $i"; xls2csv $i > $OUT_DATA/data-$m.csv; let m=m+1; done 2> error1.log
+ 1243  cd
+ 1244  cd lx2_cristiandre/
+ 1245  ls
+ 1246  cd src/
+ 1247  cd ../
+ 1248  cd src
+ 1249  ls
+ 1250  cd
+ 1251  cd lx2_cristiandre/
+ 1252  tree
+ 1253  #!/bin/bash
+ 1254  DATA=//home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos
+ 1255  mkdir $DATA/datos_csv
+ 1256  OUT_DATA=$DATA/datos_csv
+ 1257  m=0
+ 1258  for i in `find $DATA #name '*.xls' `; do echo "Procesando archivo $i"; xls2csv $i > $OUT_DATA/data-$m.csv; let m=m+1; done 2> error1.log
+ 1259  cd src
+ 1260  ls
+ 1261  vim problema2.sh
+ 1262  fg
+ 1263  vim problema2.sh 
+ 1264  vim .problema2.sh.swp
+ 1265  exit
+ 1266  cd
+ 1267  cd lx2_cristiandre/
+ 1268  tree
+ 1269  ls
+ 1270  cd hojasExcel/
+ 1271  ls
+ 1272  cd hojasDatos/
+ 1273  cd datos_csv/
+ 1274  pwd
+ 1275  ls
+ 1276  cd lx2_cristiandre/
+ 1277  ls
+ 1278  cd hojasExcel/
+ 1279  ls
+ 1280  cd hojasDatos/
+ 1281  ls
+ 1282  cd datos_graf/
+ 1283  ls
+ 1284  ls -lh
+ 1285  cd ../
+ 1286  cd //
+ 1287  cd ./
+ 1288  cd ../
+ 1289  cd lx2
+ 1290  ls
+ 1291  cd home
+ 1292  cd
+ 1293  cd.
+ 1294  cd lx2_cristiandre/
+ 1295  ls
+ 1296  cd src
+ 1297  ls
+ 1298  vim problema2.sh 
+ 1299  ./problema2.sh 
+ 1300  vim problema2.sh 
+ 1301  sed 
+ 1302  sudo apt-get sed
+ 1303  sed help
+ 1304  sed --help
+ 1305  vim problema2.sh 
+ 1306  clear
+ 1307  #!/bin/bash
+ 1308  ORIG=/home/sysadmin/lx2_cristiandre/problema2
+ 1309  DATA=/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos
+ 1310  OUT_DATA=$DATA/datos_csv
+ 1311  GRAF_DATA=$DATA/datos_graf
+ 1312  mkdir $DATA/datos_csv
+ 1313  mkdir $GRAF_DATA
+ 1314  m=0
+ 1315  for i in `find $ORIG #name '*.xls' `; do echo "Procesando archivo $i"; xls2csv $i > $OUT_DATA/data-$m.csv; let m=m+1; done 2>/home/sysadmin/lx2_cristiandre/logs/error1.log
+ 1316  m=0
+ 1317  for e in `find $OUT_DATA #name "*.csv"`; do echo "Dando formato de datos para graficar el archivo $e"; cat $e | awk #F "\",\"" '{print $1 " " $2 " " $3 " " $4 " " $5}'| sed '1,$ s/"//g' | sed '1 s/date/#date/g' > $GRAF_DATA/graf-$m.dat;  let m=m+1;  done 2> /home/sysadmin/lx2_cristiandre/logs/error2.log
+ 1318  awk
+ 1319  sudo apt-get install awk
+ 1320  sudo apt-get install mawk
+ 1321  sudo apt-get install sed
+ 1322  sudo apt-get update
+ 1323  sudo apt-get upgrade
+ 1324  EXIT
+ 1325  exit
+ 1326  e= /home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/datos_csv/data-1.csv
+ 1327  cat $e | awk #F "\",\"" '{print $1 " " $2 " " $3 " " $4 " " $5}'| sed '1,$ s/"//g' | sed '1 s/date/#date/g' > /home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/datos_csv//graf-$m.dat
+ 1328  cd ../
+ 1329  ls
+ 1330  cd hojasExcel/
+ 1331  ls
+ 1332  cd hojasDatos/
+ 1333  ls
+ 1334  cd datos_csv/
+ 1335  ls
+ 1336  cd lx2_cristiandre/
+ 1337  ls
+ 1338  cd hojasExcel/
+ 1339  cd hojasDatos/
+ 1340  ls
+ 1341  cd datos_graf/
+ 1342  ls
+ 1343  pwd
+ 1344  var e= /home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/datos_csv/data-1.csv
+ 1345  e= /home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/datos_csv/data-1.csv
+ 1346  ls -lh
+ 1347  chmod data-1 744 
+ 1348  chmod data-1.csv 744 
+ 1349  chmod data-1.csv 744 -R
+ 1350  sudo chmod data-1.csv 744 -R
+ 1351  ls -la
+ 1352  sudo chmod data-1.csv 744 -R
+ 1353  sudo chmod data-1.csv 774
+ 1354  ls
+ 1355  sudo chmod 774 data-1 -R
+ 1356  sudo chmod 774 data-1.csv -R
+ 1357  ls -la
+ 1358  e= /home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/datos_csv/data-1.csv
+ 1359  sudo chmod 774 data-2.csv -R
+ 1360  sudo chmod 774 data-3.csv -R
+ 1361  sudo chmod 774 data-4.csv -R
+ 1362  sudo chmod 774 data-5.csv -R
+ 1363  sudo chmod 774 data-6.csv -R
+ 1364  sudo chmod 774 data-7.csv -R
+ 1365  sudo chmod 774 data-0.csv -R
+ 1366  ls -la
+ 1367  ls
+ 1368  cd ../
+ 1369  ls
+ 1370  cd src
+ 1371  ls
+ 1372  ./problema2.sh 
+ 1373  vim problema2.sh 
+ 1374  ./problema2.sh 
+ 1375  vim problema2.sh 
+ 1376  ./problema2.sh 
+ 1377  vim problema2.sh 
+ 1378  ./problema2.sh 
+ 1379  vim problema2.sh 
+ 1380  ./problema2.sh 
+ 1381  vim problema2.sh 
+ 1382  ./problema2.sh 
+ 1383  vim problema2.sh 
+ 1384  ./problema2.sh 
+ 1385  vim problema2.sh 
+ 1386  ./problema2.sh 
+ 1387  vim problema2.sh 
+ 1388  ./problema2.sh 
+ 1389  vim problema2.sh 
+ 1390  ./problema2.sh 
+ 1391  vim problema2.sh 
+ 1392  ./problema2.sh 
+ 1393  vim problema2.sh 
+ 1394  ./problema2.sh 
+ 1395  vim problema2.sh 
+ 1396  ./problema2.sh 
+ 1397  vim problema2.sh 
+ 1398  ./problema2.sh 
+ 1399  vim problema2.sh 
+ 1400  ./problema2.sh 
+ 1401  vim problema2.sh 
+ 1402  ./problema2.sh 
+ 1403  vim problema2.sh 
+ 1404  ./problema2.sh 
+ 1405  vim problema2.sh 
+ 1406  ./problema2.sh 
+ 1407  vim problema2.sh 
+ 1408  ./problema2.sh 
+ 1409  vim problema2.sh 
+ 1410  ./problema2.sh 
+ 1411  vim problema2.sh 
+ 1412  ./problema2.sh 
+ 1413  vim problema2.sh 
+ 1414  ./problema2.sh 
+ 1415  which gnuplot
+ 1416  cd /usr/bin/gnuplot
+ 1417  cd
+ 1418  cd /bin/gnuplot
+ 1419  cd /bin/
+ 1420  ls
+ 1421  cd
+ 1422  cd /usr/bin/gnuplot
+ 1423  /usr/bin/gnuplot
+ 1424  set title "Titulo"
+ 1425  set xlabel "Tiempo (ms)"
+ 1426  set ylabel "Corriente (A)"
+ 1427  set xrange [0.001:0.005]
+ 1428  set yrange [20:500]
+ 1429  set autoscale
+ 1430  set label "etiqueta 1" at 0.003, 260
+ 1431  gnuplot
+ 1432  exit
+ 1433  cd lx2_cristiandre/
+ 1434  ls
+ 1435  cd hojasExcel/
+ 1436  cd hojasDatos/
+ 1437  ls
+ 1438  cd datos_graf/
+ 1439  ls
+ 1440  pwd
+ 1441  exit
+ 1442  cd lx2_cristiandre/
+ 1443  ls
+ 1444  cd src/
+ 1445  ls
+ 1446  ./problema2.sh 
+ 1447  cd ../
+ 1448  ls
+ 1449  cd hojasExcel/
+ 1450  ls
+ 1451  cd 
+ 1452  cd lx2_cristiandre/
+ 1453  cd hojasExcel/
+ 1454  cd hojasDatos/
+ 1455  ls
+ 1456  tree
+ 1457  cd ../
+ 1458  ls
+ 1459  cd ../
+ 1460  ls
+ 1461  cd logs/
+ 1462  ls
+ 1463  cat error2.log 
+ 1464  cd ../
+ 1465  ls
+ 1466  cd hojasExcel/
+ 1467  cd hojasDatos/
+ 1468  ls
+ 1469  cd ../
+ 1470  cd .//
+ 1471  cd ../
+ 1472  ls
+ 1473  cd src
+ 1474  ls
+ 1475  vim pq
+ 1476  vim problema2.sh 
+ 1477  cd .//
+ 1478  cd ../
+ 1479  ls
+ 1480  cd hojasExcel/
+ 1481  cd hojasDatos/
+ 1482  ls
+ 1483  cd datos_csv/
+ 1484  ls
+ 1485  pwd
+ 1486  cd ../
+ 1487  ls
+ 1488  cd .//
+ 1489  cd ../
+ 1490  ls
+ 1491  cd src
+ 1492  cd
+ 1493  gnuplot
+ 1494  sudo apt-get install gnuplot
+ 1495  sudo apt-get install gnuplot-x11
+ 1496  sudo apt-get update
+ 1497  sudo apt-get install gnuplot
+ 1498  sudo apt-get install gnuplot-x11
+ 1499  gnuplot
+ 1500  pwd gnuplot
+ 1501  gnuplot
+ 1502  $path
+ 1503  $PATH
+ 1504  gnuplot
+ 1505  cd lx2_cristiandre/
+ 1506  ls
+ 1507  cd o
+ 1508  cd hojasExcel/
+ 1509  ls
+ 1510  cd hojasDatos/
+ 1511  ls
+ 1512  cd datos_csv/
+ 1513  ls
+ 1514  cd ../
+ 1515  cd datos_graf/
+ 1516  ls
+ 1517  vim graf-1
+ 1518  vim graf-1.dat
+ 1519  ls
+ 1520  cd ../
+ 1521  cd lx2_cristiandre/
+ 1522  ls
+ 1523  cd src/
+ 1524  ls
+ 1525  ./varibles.sh 
+ 1526  ./varibles.sh >> ./ver 
+ 1527  ls
+ 1528  vim ver
+ 1529  vim problema2.sh 
+ 1530  vim varibles.sh 
+ 1531  ./varibles.sh >> ./ver 
+ 1532  vim varibles.sh 
+ 1533  ./varibles.sh
+ 1534  vim varibles.sh 
+ 1535  ./varibles.sh
+ 1536  vim varibles.sh 
+ 1537  ./varibles.sh
+ 1538  vim varibles.sh 
+ 1539  cd
+ 1540  history > history_root_server01/
+ 1541  history > history/history_root_server01
+ 1542  ls
+ 1543  cd history_root_server01/
+ 1544  ls
+ 1545  cd
+ 1546  cd lx2_cristiandre/
+ 1547  ls
+ 1548  history > history/history_server01 
+ 1549  vim history/history_server01 
+ 1550  greep history/history_server01 | xls2cv
+ 1551  grep history/history_server01 | xls2cv
+ 1552  ls
+ 1553  cd problema3
+ 1554  ls
+ 1555  vim datos.utf-8.out > datos.csv
+ 1556  ls
+ 1557  vim datos.csv 
+ 1558  rm datos.csv 
+ 1559  ls
+ 1560  mv datos.csv
+ 1561  ls
+ 1562  rm datos.csv datos.utf-8.out
+ 1563  mv datos.csv datos.utf-8.out
+ 1564  ls
+ 1565  iconv -f iso-8859-1 -t utf-8 Datos >> datos.utf-8.out
+ 1566  iconv -f iso-8859-1 -t utf-8 Datos >> datos.utf-8.csv
+ 1567  ls
+ 1568  vim datos.utf-8.csv
+ 1569  cd ../
+ 1570  ls
+ 1571  cd src
+ 1572  ls
+ 1573  cp problema2.sh .problema3.sh
+ 1574  ls
+ 1575  cp problema2.sh ./problema3.sh
+ 1576  ls
+ 1577  vim problema3.sh
+ 1578  cd ../
+ 1579  ls
+ 1580  cd lx2_cristiandre/
+ 1581  ls
+ 1582  cd hojasExcel/
+ 1583  ls
+ 1584  cd hojasDatos/
+ 1585  ls
+ 1586  cd datos_csv/
+ 1587  ls
+ 1588  less data-1.csv 
+ 1589  cd ../
+ 1590  ls
+ 1591  cd..
+ 1592  cd ../
+ 1593  ls
+ 1594  cd problema3
+ 1595  ls
+ 1596  less Datos 
+ 1597  exit
+ 1598  sudo apt-get update
+ 1599  cd lx2_cristiandre/
+ 1600  ls
+ 1601  cd problema2
+ 1602  ls
+ 1603  ls -la
+ 1604  cd ../
+ 1605  ls
+ 1606  cd src
+ 1607  ls
+ 1608  vim problema2
+ 1609  vim problema2.sh
+ 1610  ./problema2.sh 
+ 1611  vim problema2.sh
+ 1612  ./problema2.sh 
+ 1613  vim problema2.sh
+ 1614  ./problema2.sh 
+ 1615  vim problema2.sh
+ 1616  ./problema2.sh 
+ 1617  vim problema2.sh
+ 1618  ./problema2.sh 
+ 1619  vim problema2.sh
+ 1620  ./problema2.sh 
+ 1621  vim problema2.sh
+ 1622  ./problema2.sh 
+ 1623  vim problema2.sh
+ 1624  source 
+ 1625  source problema2.sh
+ 1626  cd lx2_cristiandre/
+ 1627  ls
+ 1628  cd problema2
+ 1629  cd src
+ 1630  cd .//
+ 1631  ls
+ 1632  cd ../
+ 1633  ls
+ 1634  cd src
+ 1635  ls
+ 1636  vim problema2.sh
+ 1637  ./problema2.sh
+ 1638  vim problema2.sh
+ 1639  ./problema2.sh
+ 1640  vim problema2.sh
+ 1641  ./problema2.sh
+ 1642  vim problema2.sh
+ 1643  ./problema2.sh
+ 1644  vim problema2.sh
+ 1645  ./problema2.sh
+ 1646  vim problema2.sh
+ 1647  ./problema2.sh
+ 1648  vim problema2.sh
+ 1649  ./problema2.sh
+ 1650  vim problema2.sh
+ 1651  ./problema2.sh
+ 1652  vim problema2.sh
+ 1653  ./problema2.sh
+ 1654  cd ../
+ 1655  ls
+ 1656  cd h
+ 1657  cd hojasExcel/
+ 1658  ls
+ 1659  cd hojasDatos/
+ 1660  ls
+ 1661  cd datos_graf/
+ 1662  ls
+ 1663  pwd
+ 1664  gnuplot
+ 1665  exit
+ 1666  cd lx2_cristiandre/
+ 1667  cd 
+ 1668  cd lx2_cristiandre/
+ 1669  ls
+ 1670  cd src
+ 1671  ls
+ 1672  cd ../
+ 1673  ls
+ 1674  cd hojasExcel/
+ 1675  cd hojasDatos/
+ 1676  ls
+ 1677  cd datos_graf/
+ 1678  gnuplot
+ 1679  mkdir plot
+ 1680  cd plot
+ 1681  ls
+ 1682  gnuplot
+ 1683  clear
+ 1684  gnuplot
+ 1685  set output "/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/datos_graf/graf-2.png"
+ 1686  set output file "/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/datos_graf/graf-2.png"
+ 1687  gnuplot
+ 1688  sudo apt-get install gnuplot-doc
+ 1689  sudo apt-get install gnuplot-x11
+ 1690  gnuplot
+ 1691  cd ../
+ 1692  ls
+ 1693  cd src
+ 1694  ls
+ 1695  cd src
+ 1696  cd ../
+ 1697  \ls
+ 1698  cd ../
+ 1699  ls
+ 1700  cd src
+ 1701  ls
+ 1702  vim problema2.sh
+ 1703  ./ problema2.sh
+ 1704  ./problema2.sh
+ 1705  vim problema2.sh
+ 1706  ./problema2.sh
+ 1707  vim problema2.sh
+ 1708  ./problema2.sh
+ 1709  ls -la
+ 1710  cd
+ 1711  cd lx2_cristiandre/
+ 1712  ls
+ 1713  cd hojasExcel/
+ 1714  cd hojasDatos/
+ 1715  ls
+ 1716  ls -la
+ 1717  cd .//
+ 1718  cd ../
+ 1719  ls
+ 1720  cd src
+ 1721  ls
+ 1722  vim problema2.sh
+ 1723  ./problema2.sh
+ 1724  vim problema2.sh
+ 1725  clear
+ 1726  ./problema2.sh
+ 1727  vim problema2.sh
+ 1728  ./problema2.sh
+ 1729  vim problema2.sh
+ 1730  clear
+ 1731  ./problema2.sh
+ 1732  vim problema2.sh
+ 1733  ./problema2.sh
+ 1734  clear
+ 1735  ./problema2.sh
+ 1736  clear
+ 1737  vim problema2.sh
+ 1738  ./problema2.sh
+ 1739  clear
+ 1740  ./problema2.sh
+ 1741  vim problema2.sh > bk_problema2.sh
+ 1742  cp problema2.sh bk_problema2.sh
+ 1743  ls
+ 1744  ls problema2.sh
+ 1745  vim problema2.sh
+ 1746  LS
+ 1747  ls
+ 1748  vim problema2.sh
+ 1749  ls
+ 1750  vim problema2.sh
+ 1751  ls
+ 1752  vim problema2.sh
+ 1753  ls
+ 1754  exit
+ 1755  ls
+ 1756  exit
+ 1757  cd ..//
+ 1758  cd ../
+ 1759  ls
+ 1760  cd lx2_cristiandre/
+ 1761  cd hojasExcel/
+ 1762  cd hojasDatos/
+ 1763  ls
+ 1764  cd full_datos/
+ 1765  ls
+ 1766  pwd
+ 1767  ls -la
+ 1768  cd lx2_cristiandre/
+ 1769  ls
+ 1770  cd src/
+ 1771  ls
+ 1772  vim problema2.sh
+ 1773  cd .//
+ 1774  cd ../
+ 1775  cd hojasExcel/
+ 1776  ls
+ 1777  cd hojasDatos/
+ 1778  ls
+ 1779  cat full_datos/
+ 1780  cd full_datos/
+ 1781  ls
+ 1782  vim full.dat 
+ 1783  cd..
+ 1784  cd ../
+ 1785  ls
+ 1786  cd src
+ 1787  ls
+ 1788  vim problema2.sh
+ 1789  cd .//
+ 1790  cd ../
+ 1791  cd hojasExcel/
+ 1792  cd hojasDatos/
+ 1793  ls
+ 1794  cd full_datos/
+ 1795  ls
+ 1796  awk '/Luz/ { print $0 }' full.dat
+ 1797  awk '/Agua/ { print $0 }' full.dat
+ 1798  cd ../
+ 1799  ls
+ 1800  cd src
+ 1801  vim problema2.sh
+ 1802  ./problema2.sh
+ 1803  vim problema2.sh
+ 1804  ./problema2.sh
+ 1805  vim problema2.sh
+ 1806  ./problema2.sh
+ 1807  vim problema2.sh
+ 1808  ./problema2.sh
+ 1809  1
+ 1810  vim problema2.sh
+ 1811  ./problema2.sh
+ 1812  vim problema2.sh
+ 1813  ./problema2.sh
+ 1814  vim problema2.sh
+ 1815  ./problema2.sh
+ 1816  vim problema2.sh
+ 1817  ./problema2.sh
+ 1818  vim problema2.sh
+ 1819  ./problema2.sh
+ 1820  vim problema2.sh
+ 1821  ./problema2.sh
+ 1822  vim problema2.sh
+ 1823  ./problema2.sh
+ 1824  vim problema2.sh
+ 1825  ./problema2.sh
+ 1826  vim problema2.sh
+ 1827  ./problema2.sh
+ 1828  vim problema2.sh
+ 1829  ./problema2.sh
+ 1830  vim problema2.sh
+ 1831  ./problema2.sh
+ 1832  vim problema2.sh
+ 1833  ./problema2.sh
+ 1834  vim problema2.sh
+ 1835  ./problema2.sh
+ 1836  vim problema2.sh
+ 1837  ./problema2.sh
+ 1838  vim problema2.sh
+ 1839  ./problema2.sh
+ 1840  vim problema2.sh
+ 1841  ./problema2.sh
+ 1842  vim problema2.sh
+ 1843  ./problema2.sh
+ 1844  vim problema2.sh
+ 1845  ./problema2.sh
+ 1846  vim problema2.sh
+ 1847  ./problema2.sh
+ 1848  vim problema2.sh
+ 1849  awk '/Luz/ { print $0 }' /home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/full.dat > luz.dat
+ 1850  awk '/Luz/ { print $0 }' “/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/full.dat” > luz.dat
+ 1851  awk '/Luz/ { print $0 }' '/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/full.dat' > luz.dat
+ 1852  awk '/Luz/ { print $0 }' '/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/full.dat' > ./luz.dat
+ 1853  awk '/Luz/ { print $0 }' full.dat
+ 1854  cd .//
+ 1855  cd ../
+ 1856  cd hojasExcel/
+ 1857  cd hojasDatos/
+ 1858  ls
+ 1859  cd full
+ 1860  cd full_datos/
+ 1861  ls
+ 1862  awk '/Luz/ { print $0 }' full.dat
+ 1863  awk '/Luz/ { print $0 }' full.dat > luz.dat
+ 1864  pwd
+ 1865  cd
+ 1866  awk '/Luz/ { print $0 }'  /home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/ full.dat > luz.dat
+ 1867  awk '/Luz/ { print $0 }'  /home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/full.dat > luz.dat
+ 1868  awk '/Luz/ { print $0 }'/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/full.dat > luz.dat
+ 1869  clear
+ 1870  awk '/Luz/ { print $0 }'/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/full.dat > luz.dat
+ 1871  awk '/Luz/ { print $0 }' /home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/full.dat > luz.dat
+ 1872  awk '/Luz/ { print $0 }' "/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/full.dat" > luz.dat
+ 1873  cd lx2_cristiandre/
+ 1874  cd hojasExcel/
+ 1875  cd hojasDatos/
+ 1876  ls
+ 1877  cd .//
+ 1878  cd ../
+ 1879  ls
+ 1880  cd src/
+ 1881  ls
+ 1882  vim problema2.sh
+ 1883  ./problema2.sh
+ 1884  vim problema2.sh
+ 1885  ./problema2.sh
+ 1886  vim problema2.sh
+ 1887  ./problema2.sh
+ 1888  vim problema2.sh
+ 1889  ./problema2.sh
+ 1890  cd lx2_cristiandre/
+ 1891  cd hojasExcel/
+ 1892  cd hojasDatos/
+ 1893  ls
+ 1894  cd .//
+ 1895  cd ../
+ 1896  ls
+ 1897  cd src
+ 1898  ls
+ 1899  vim problema2.sh
+ 1900  gnuplot
+ 1901  vim problema2.sh
+ 1902  ./problema2.sh
+ 1903  vim problema2.sh
+ 1904  ./problema2.sh
+ 1905  vim problema2.sh
+ 1906  ./problema2.sh
+ 1907  cd plot
+ 1908  vim problema2.sh
+ 1909  ./problema2.sh
+ 1910  cd plot
+ 1911  vim problema2.sh
+ 1912  ./problema2.sh
+ 1913  ls -la
+ 1914  cd ../
+ 1915  ls
+ 1916  cd hojasExcel/
+ 1917  cd hojasDatos/
+ 1918  ls
+ 1919  cd full_datos/
+ 1920  ls
+ 1921  cd plot
+ 1922  ls
+ 1923  pwd
+ 1924  cd ../
+ 1925  cd src
+ 1926  ls
+ 1927  cd ../
+ 1928  ls
+ 1929  cd src
+ 1930  ls
+ 1931  vim problema2.sh
+ 1932  ./problema2.sh
+ 1933  vim problema2.sh
+ 1934  ./problema2.sh
+ 1935  vim problema2.sh
+ 1936  ./problema2.sh
+ 1937  exit
+ 1938  cd lx2_cristiandre/
+ 1939  ls
+ 1940  cd src/
+ 1941  ls
+ 1942  vim problema2.sh
+ 1943  exit
+ 1944  cd lx2_cristiandre/
+ 1945  cd src
+ 1946  ls
+ 1947  vim problema2.sh
+ 1948  ./problema2.sh
+ 1949  vim problema2.sh
+ 1950  ls
+ 1951  vim problema2.sh
+ 1952  ./problema2.sh
+ 1953  vim problema2.sh
+ 1954  ./problema2.sh
+ 1955  chmod a+x problema2.sh
+ 1956  chmod a+x ./problema2.sh
+ 1957  ./problema2.sh
+ 1958  vim problema2.sh
+ 1959  gnutplot
+ 1960  gnuplot
+ 1961  vim problema2.sh
+ 1962  ./problema2.sh
+ 1963  vim problema2.sh
+ 1964  ./problema2.sh
+ 1965  vim problema2.sh
+ 1966  ./problema2.sh
+ 1967  vim problema2.sh
+ 1968  ./problema2.sh
+ 1969  vim problema2.sh
+ 1970  ./problema2.sh
+ 1971  vim problema2.sh
+ 1972  ./problema2.sh
+ 1973  vim problema2.sh
+ 1974  ./problema2.sh
+ 1975  vim problema2.sh
+ 1976  ./problema2.sh
+ 1977  vim problema2.sh
+ 1978  gnuplot "/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/g.dat" using 2 with lines title 'Gastos'
+ 1979  gnuplot "/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/g.dat" using 2
+ 1980  gnuplot "/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/g.dat" using 1
+ 1981  gnuplot
+ 1982  gnuplot "/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/g.dat" using 2
+ 1983  sudo -s gnuplot "/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/g.dat" using 2
+ 1984  gnplot
+ 1985  gnuplot
+ 1986  gnuplot "/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/g.dat" using 2
+ 1987  gnuplot plot "/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/g.dat" using 2
+ 1988  gnuplot help
+ 1989  gnplot
+ 1990  gnuplot
+ 1991  gnuplot -plot "/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/g.dat" using 2
+ 1992  gnuplot plot "/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/g.dat" using 2
+ 1993  gnuplot "/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/g.dat" using 2
+ 1994  gnuplot -plot "/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/g.dat" using 2
+ 1995  gnuplot header - trailer
+ 1996  gnuplot
+ 1997  vim problema2.sh
+ 1998  ./problema2.sh
+ 1999  vim problema2.sh
+ 2000  ./problema2.sh
+ 2001  vim problema2.sh
+ 2002  ./problema2.sh
+ 2003  vim problema2.sh
+ 2004  ./problema2.sh
+ 2005  cd l2
+ 2006  cd lx2_cristiandre/
+ 2007  ls
+ 2008  cd src
+ 2009  ls
+ 2010  vim problema2.sh
+ 2011  ./problema2.sh
+ 2012  vim problema2.sh
+ 2013  ./problema2.sh
+ 2014  vim problema2.sh
+ 2015  ./problema2.sh
+ 2016  vim problema2.sh
+ 2017  ./problema2.sh
+ 2018  vim problema2.sh
+ 2019  ./problema2.sh
+ 2020  vim problema2.sh
+ 2021  ./problema2.sh
+ 2022  vim problema2.sh
+ 2023  ./problema2.sh
+ 2024  exit
+ 2025  cd lx2_cristiandre/
+ 2026  cd problema3/
+ 2027  ls
+ 2028  awk -v f=6 -v t=7 '{for(i=f;i<=t;i++) printf("%s%s",$i,(i==t)?"\n":OFS)}' Datos >prueba.dat
+ 2029  vim prueba.dat 
+ 2030  cd ../
+ 2031  ls
+ 2032  cd src/
+ 2033  ls
+ 2034  vim problema2.sh
+ 2035  ./problema2.sh
+ 2036  exit
+ 2037  cd lx2_cristiandre/
+ 2038  cd problema3
+ 2039  ls
+ 2040  pwd
+ 2041  awk '{print $1 $3}' Datos
+ 2042  awk '{print $16 $7}' Datos
+ 2043  awk '{print $6 $7}' Datos
+ 2044  clear
+ 2045  awk '{print $6 $7}' Datos
+ 2046  sed '1,2d' Datos
+ 2047  sed '1,2d' Datos > sinFilas.dat
+ 2048  ls
+ 2049  vim  sinFilas.dat 
+ 2050  awk '{print $6 $7}' sinFilas.dat 
+ 2051  awk '{print $6 $7}' sinFilas.dat  >aver.dat
+ 2052  ls
+ 2053  vim aver.dat 
+ 2054  vim datos.utf-8.
+ 2055  vim Datos 
+ 2056  awk '{print $6 $7}' Datos > borrador.dat
+ 2057  ls
+ 2058  vim borrador.dat 
+ 2059  cd lx2_cristiandre/
+ 2060  cd scr
+ 2061  ls
+ 2062  cd src
+ 2063  vim problema2.sh
+ 2064  cal 2016
+ 2065  cal 6 2016
+ 2066  vim problema2.sh
+ 2067  ./problema2.sh
+ 2068  vim problema2.sh
+ 2069  ./problema2.sh
+ 2070  vim problema2.sh
+ 2071  ./problema2.sh
+ 2072  vim problema2.sh
+ 2073  ./problema2.sh
+ 2074  vim ciclo_menu.sh
+ 2075  ./ciclo_menu.sh
+ 2076  chmod 750 ciclo_menu.sh 
+ 2077  ls -la ciclo_menu.sh 
+ 2078  vim ciclo_menu.sh
+ 2079  ./ciclo_menu.sh
+ 2080  vim problema2.sh
+ 2081  ./problema2.sh
+ 2082  vim problema2.sh
+ 2083  ./problema2.sh
+ 2084  vim problema2.sh
+ 2085  ./problema2.sh
+ 2086  vim problema2.sh
+ 2087  ./problema2.sh
+ 2088  vim problema2.sh
+ 2089  ./problema2.sh
+ 2090  vim problema2.sh
+ 2091  ./problema2.sh
+ 2092  vim problema2.sh
+ 2093  ./problema2.sh
+ 2094  cp problema2.sh bk_problema2_1.sh 
+ 2095  ls -la
+ 2096  vim problema2.sh
+ 2097  ./problema2.sh
+ 2098  vim problema2.sh
+ 2099  ./problema2.sh
+ 2100  vim problema2.sh
+ 2101  ./problema2.sh
+ 2102  vim menu_case.sh
+ 2103  ./menu_case.sh
+ 2104  chmod 750 menu_case.sh 
+ 2105  ls -la
+ 2106  ./menu_case.sh
+ 2107  vim problema2.sh
+ 2108  ./problema2.sh
+ 2109  vim problema2.sh
+ 2110  ./problema2.sh
+ 2111  vim problema2.sh
+ 2112  ./problema2.sh
+ 2113  vim problema2.sh
+ 2114  ./problema2.sh
+ 2115  ./menu_case.sh
+ 2116  ./problema2.sh
+ 2117  ./menu_case.sh
+ 2118  vim problema2.sh
+ 2119  ./problema2.sh
+ 2120  vim problema2.sh
+ 2121  ./problema2.sh
+ 2122  vim problema2.sh
+ 2123  ./problema2.sh
+ 2124  vim problema2.sh
+ 2125  ./problema2.sh
+ 2126  vim problema2.sh
+ 2127  ./problema2.sh
+ 2128  vim problema2.sh
+ 2129  ./problema2.sh
+ 2130  vim problema2.sh
+ 2131  ./problema2.sh
+ 2132  vim problema2.sh
+ 2133  ./problema2.sh
+ 2134  vim problema2.sh
+ 2135  ./problema2.sh
+ 2136  vim problema2.sh
+ 2137  ./problema2.sh
+ 2138  vim problema2.sh
+ 2139  ./problema2.sh
+ 2140  vim problema2.sh
+ 2141  ./problema2.sh
+ 2142  vim problema2.sh
+ 2143  ./problema2.sh
+ 2144  vim problema2.sh
+ 2145  ./problema2.sh
+ 2146  vim problema2.sh
+ 2147  exit
+ 2148  bash$ echo $BASH
+ 2149  echo $BASH
+ 2150  cd lx2_cristiandre/
+ 2151  cd src 
+ 2152  ls
+ 2153  vim ciclos.sh
+ 2154  ./ciclos.sh
+ 2155  chmod 750 ciclos.sh 
+ 2156  ls -la
+ 2157  ./ciclos.sh
+ 2158  vim ciclos.sh 
+ 2159  ./ciclos.sh
+ 2160  vim ciclos.sh 
+ 2161  ./ciclos.sh
+ 2162  vim ciclos.sh 
+ 2163  ./ciclos.sh
+ 2164  vim ciclos.sh 
+ 2165  ./ciclos.sh
+ 2166  ./ciclos.sh 1 2 3
+ 2167  vim ciclos.sh 
+ 2168  exit
+ 2169  cd lx2_cristiandre/
+ 2170  cd src
+ 2171  ls
+ 2172  cp problema2.sh bk_problema2.sh
+ 2173  vim bk_problema2.sh 
+ 2174  ./bk_problema2_1.sh 
+ 2175  vim bk_problema2.sh 
+ 2176  ./bk_problema2.sh 
+ 2177  chmod 750 bk_problema2.sh 
+ 2178  ./bk_problema2.sh 
+ 2179  vim bk_problema2.sh 
+ 2180  ./bk_problema2.sh 
+ 2181  vim bk_problema2.sh 
+ 2182  ./bk_problema2.sh 
+ 2183  vim bk_problema2.sh 
+ 2184  ./bk_problema2.sh 
+ 2185  vim bk_problema2.sh 
+ 2186  ./bk_problema2.sh 
+ 2187  vim bk_problema2.sh 
+ 2188  ./bk_problema2.sh 
+ 2189  vim bk_problema2.sh 
+ 2190  ./bk_problema2.sh 
+ 2191  vim bk_problema2.sh 
+ 2192  ./bk_problema2.sh 
+ 2193  vim bk_problema2.sh 
+ 2194  ./bk_problema2.sh 
+ 2195  vim bk_problema2.sh 
+ 2196  ./bk_problema2.sh 
+ 2197  vim bk_problema2.sh 
+ 2198  ./bk_problema2.sh 
+ 2199  vim bk_problema2.sh 
+ 2200  ./bk_problema2.sh 
+ 2201  vim bk_problema2.sh 
+ 2202  ./bk_problema2.sh 
+ 2203  vim bk_problema2.sh 
+ 2204  ./bk_problema2.sh 
+ 2205  vim bk_problema2.sh 
+ 2206  ./bk_problema2.sh 
+ 2207  vim bk_problema2.sh 
+ 2208  ./bk_problema2.sh 
+ 2209  vim bk_problema2.sh 
+ 2210  ./bk_problema2.sh 
+ 2211  vim bk_problema2.sh 
+ 2212  ./bk_problema2.sh 
+ 2213  vim bk_problema2.sh 
+ 2214  ./bk_problema2.sh 
+ 2215  vim bk_problema2.sh 
+ 2216  ./bk_problema2.sh 
+ 2217  vim bk_problema2.sh 
+ 2218  ./bk_problema2.sh 
+ 2219  vim bk_problema2.sh 
+ 2220  ./bk_problema2.sh 
+ 2221  vim bk_problema2.sh 
+ 2222  ./bk_problema2.sh 
+ 2223  vim bk_problema2.sh 
+ 2224  ./bk_problema2.sh 
+ 2225  vim bk_problema2.sh 
+ 2226  ./bk_problema2.sh 
+ 2227  vim bk_problema2.sh 
+ 2228  ./bk_problema2.sh 
+ 2229  vim bk_problema2.sh 
+ 2230  ./bk_problema2.sh 
+ 2231  vim bk_problema2.sh 
+ 2232  ./bk_problema2.sh 
+ 2233  vim bk_problema2.sh 
+ 2234  ./bk_problema2.sh 
+ 2235  vim bk_problema2.sh 
+ 2236  ./bk_problema2.sh 
+ 2237  vim bk_problema2.sh 
+ 2238  ./bk_problema2.sh 
+ 2239  vim bk_problema2.sh 
+ 2240  ./bk_problema2.sh 
+ 2241  vim bk_problema2.sh 
+ 2242  ./bk_problema2.sh 
+ 2243  vim bk_problema2.sh 
+ 2244  ./bk_problema2.sh 
+ 2245  vim bk_problema2.sh 
+ 2246  ./bk_problema2.sh 
+ 2247  vim bk_problema2.sh 
+ 2248  ./bk_problema2.sh 
+ 2249  vim bk_problema2.sh 
+ 2250  ./bk_problema2.sh 
+ 2251  exit
+ 2252  cd lx2_cristiandre/
+ 2253  cd src
+ 2254  vim tput_menu.sh
+ 2255  ./tput_menu.sh
+ 2256  chmod 750 tput_menu.sh 
+ 2257  ./tput_menu.sh
+ 2258  tput
+ 2259  ./tput_menu.sh
+ 2260  clear
+ 2261  cd ../
+ 2262  cd hojasExcel/
+ 2263  cd
+ 2264  cd lx2_cristiandre/
+ 2265  ls
+ 2266  cd problema3
+ 2267  ls
+ 2268  vim datos
+ 2269  vim datos.utf-8.
+ 2270  cat datos.utf-8.
+ 2271  cat datos.utf-8.csv 
+ 2272  vim datos.utf-8.csv 
+ 2273  cd
+ 2274  cd lx2_cristiandre/
+ 2275  cd scr
+ 2276  ls
+ 2277  cd scr
+ 2278  cd src
+ 2279  ls
+ 2280  vim bk_problema2_1.sh 
+ 2281  ./bk_problema2_1.sh 
+ 2282  vim bk_problema2_1.sh 
+ 2283  ls
+ 2284  vim bk_problema2.sh 
+ 2285  cp bk_problema2.sh problema3.sh
+ 2286  vim problema3.sh 
+ 2287  rm bk_problema3.sh
+ 2288  ls
+ 2289  vim problema3.sh 
+ 2290  vim problema3.sh
+ 2291  ls
+ 2292  cd .//
+ 2293  cd ../
+ 2294  ls
+ 2295  cd problema3/
+ 2296  ls
+ 2297  xls2csv Datos >prueba.csv
+ 2298  iconv -f iso-8859-1 -t utf-8 Datos >> datos1.utf-8.out
+ 2299  ls
+ 2300  xls2csv datos1.utf-8.out >prueba1.csv
+ 2301  vim datos1.utf-8.out 
+ 2302  vim prueba.csv 
+ 2303  ls
+ 2304  clear
+ 2305  ls
+ 2306  vim Datos
+ 2307  ls
+ 2308  sed '1,5d' Datos
+ 2309  ls
+ 2310  clear
+ 2311  sed '1,5d' Datos>eliminased
+ 2312  ls 
+ 2313  vim eliminased
+ 2314  vim Datos
+ 2315  vim eliminased
+ 2316  sed '1,4d' Datos>eliminased
+ 2317  vim eliminased 
+ 2318  awk '{print $6 $7}' eliminased
+ 2319  :q
+ 2320  vim eliminased 
+ 2321  cat eliminased | awk #F "\",\"" '{print $6 " " $7 " "}'
+ 2322  vim eliminased 
+ 2323  awk #F "\",\"" '{print $6 " " $7 " "}' eliminased
+ 2324  awk #F "\",\"" '{print $6 " " $7 " "}' eliminased >ver
+ 2325  ls
+ 2326  cat $e | awk -F "\",\"" '{print $6 " " $7}'| sed '1,$ s/"//g' | sed '1d'| sed '4,$d' > Datos/graf3.dat
+ 2327  cat $e | awk -F "\",\"" '{print $6 " " $7}'| sed '1,$ s/"//g' | sed '1d'| sed '4,$d' > problema3/graf3.dat
+ 2328  clear
+ 2329  cat $e | awk -F "\",\"" '{print $6 " " $7}'| sed '1,$ s/"//g' | sed '1d'| sed '4,$d' > ./graf3.dat
+ 2330  awk -F "\",\"" '{print $6 " " $7}'| sed '1,$ s/"//g' | sed '1d'| sed '4,$d' > ./graf3.dat
+ 2331  ls
+ 2332  ls -la
+ 2333  clear
+ 2334  cat Datos | awk -F "\",\"" '{print $6 " " $7}'| sed '1,$ s/"//g' | sed '1d'| sed '4,$d' > ./graf3.dat
+ 2335  ls
+ 2336  ls -la
+ 2337  vim graf3.dat 
+ 2338  clear
+ 2339  sed '1,4d'Datos>eliminased
+ 2340  sed '1,4d' Datos>eliminased
+ 2341  ls
+ 2342  vim eliminased | head
+ 2343  clear
+ 2344  sed '1,4d' Datos>eliminased
+ 2345  cat eliminased | awk -F "\",\"" '{print $6 " " $7}'| sed '1,$ s/"//g' | sed '1d'| sed '4,$d' > ./graf3.dat
+ 2346  ls
+ 2347  ls -la
+ 2348  vim graf3.dat 
+ 2349  cat eliminased | awk -F "\",\"" '{print $6 " " $7}'| sed '1,$ s/"//g' | sed '6d'| sed '7,$d' > ./graf4.dat
+ 2350  ls -la
+ 2351  vim graf4.dat 
+ 2352  cat eliminased | awk -F "\",\"" '{print $6 " " $7}'| sed '1,$ s/"//g' > ./graf3.dat
+ 2353  ls -la
+ 2354  vim graf3.dat 
+ 2355  cat eliminased | awk -F "\",\"" '{print $6 " " $7}'| sed '1,$ s/"//g' > graf3.dat
+ 2356  ls -la
+ 2357  vim graf3.dat 
+ 2358  vim eliminased 
+ 2359  vim eliminased
+ 2360  VIM -r eliminased 
+ 2361  vim eliminased
+ 2362  vim -r .eliminased.swp
+ 2363  vim eliminased
+ 2364  vim -r eliminased.swp
+ 2365  vim eliminased
+ 2366  sed '1,4d' Datos>eliminased
+ 2367  vim eliminased 
+ 2368  sed '1,4d' Datos> Datosincolumnas
+ 2369  vim Datosincolumnas 
+ 2370  cat Datosincolumnas | awk -F "\",\"" '{print $6 " " $7}'| sed '1,$ s/"//g'>graf3.dat
+ 2371  ls -la
+ 2372  vim graf3.dat 
+ 2373  awk -F "\",\"" '{print $6 " " $7}' Datosincolumnas | sed '1,$ s/"//g' >graf3.dat
+ 2374  ls -la
+ 2375  awk -F "\",\"" '{print $6 " " $7}' Datosincolumnas >ver
+ 2376  ls
+ 2377  ls -la
+ 2378  vim ver
+ 2379  clear
+ 2380  ls
+ 2381  cat Datosincolumnas | awk #F "\",\""
+ 2382  cat Datosincolumnas | awk #F "\",\"" '{print $1 " " $2 " " $3 " " $4 " " $5}' | head > ver1.dat
+ 2383  ls -la
+ 2384  cat Datosincolumnas | awk #F "\",\"" '{print $1 $7}' | head > ver1.dat
+ 2385  ls -la
+ 2386  cat Datosincolumnas | awk #F "\",\"" '{print $1 $7}' | head 
+ 2387  awk #F "\",\"" '{print $1 $7}' Datosincolumnas 
+ 2388  ls
+ 2389  ls -la
+ 2390  awk -F "," {'print $1 $3'} Datos
+ 2391  awk -F "," {'print $6 $7'} Datos
+ 2392  awk -F "," {'print $6 $7'} Datos >revisar
+ 2393  ls -la
+ 2394  vin revisar 
+ 2395  vim revisar 
+ 2396  awk -F "," {'print $6 $7'} Datosincolumnas >revisar
+ 2397  ls
+ 2398  ls -la
+ 2399  vim revisar 
+ 2400  cat Datosincolumnas  | awk -F "\",\"" {'print $6 $7'} | sed sed '1,$ s/"//g' > graf3.dat
+ 2401  cat Datosincolumnas  | awk -F "\",\"" {'print $6 $7'} | sed '1,$ s/"//g' > graf3.dat
+ 2402  ls -la
+ 2403  ls -la graf3.dat 
+ 2404  cat graf3.dat 
+ 2405  ls -la graf3.dat 
+ 2406  cat Datosincolumnas  | awk -F "," {'print $6 $7'} | sed '1,$ s/"//g' > graf3.dat
+ 2407  ls -la
+ 2408  ls -la graf3.dat 
+ 2409  vim graf3.dat 
+ 2410  cat Datosincolumnas  | awk -F "," {'print $1 $2'} | sed '1,$ s/"//g' > graf3.dat
+ 2411  vim graf3.dat 
+ 2412  cat Datosincolumnas  | awk -F "," {'print $3 $4'} | sed '1,$ s/"//g' > graf3.dat
+ 2413  vim graf3.dat 
+ 2414  cat Datosincolumnas  | awk -F "," {'print $6 $7'} | sed '1,$ s/"//g' > graf3.dat
+ 2415  vim graf3.dat 
+ 2416  gnuplot
+ 2417  pwd
+ 2418  ls -la
+ 2419  gnuplot
+ 2420  cat Datosincolumnas  | awk -F "," '{print $6 " " $7}' | sed '1,$ s/"//g' > graf3.dat
+ 2421  ls -la
+ 2422  ls -la graf3.dat 
+ 2423  vim graf3.dat 
+ 2424  gnuplot
+ 2425  vim graf3.dat 
+ 2426  gnuplot
+ 2427  vim graf3.dat 
+ 2428  exit
+ 2429  cd lx2_cristiandre/
+ 2430  cd src
+ 2431  cd ../
+ 2432  cd pruebas/
+ 2433  vim menu1.sh
+ 2434  chmod 750 menu1.sh 
+ 2435  ./menu1.sh 
+ 2436  vim menu2.sh
+ 2437  chmod 750 menu2.sh 
+ 2438  ./menu2.sh 
+ 2439  vim menu2.sh
+ 2440  ./menu2.sh 
+ 2441  cd .//
+ 2442  cd ../
+ 2443  ls
+ 2444  cd problema3/
+ 2445  ls
+ 2446  vim Datosincolumnas 
+ 2447  cd .//
+ 2448  cd ../
+ 2449  cd hojasExcel/
+ 2450  ls
+ 2451  cd hojasDatos/
+ 2452  cd datos_
+ 2453  cd datos_csv/
+ 2454  ls
+ 2455  pwd
+ 2456  gnuplot
+ 2457  cd ../
+ 2458  ls
+ 2459  cd problema3
+ 2460  ls
+ 2461  pwd
+ 2462  ls
+ 2463  cd .//
+ 2464  cd ../
+ 2465  ls
+ 2466  cd lx2_cristiandre/
+ 2467  ls
+ 2468  cd src
+ 2469  ls
+ 2470  vim problema3.sh
+ 2471  ./problema3.sh
+ 2472  chmod 750 problema3.sh
+ 2473  ./problema3.sh
+ 2474  vim problema3.sh
+ 2475  vim problema2.sh
+ 2476  vim bk_problema2.sh 
+ 2477  vim problema3.sh
+ 2478  ./problema3.sh
+ 2479  ls -la
+ 2480  exit
+ 2481  lx2_cristiandre/
+ 2482  cd lx2_cristiandre/
+ 2483  ls
+ 2484  cd src/
+ 2485  ls
+ 2486  ./problema3.sh
+ 2487  cp problema3.sh bk_problema3.sh
+ 2488  ls
+ 2489  vim bk_problema3.sh 
+ 2490  ./bk_problema3.sh 
+ 2491  vim bk_problema3.sh 
+ 2492  ./bk_problema3.sh 
+ 2493  vim bk_problema2.sh 
+ 2494  ./bk_problema2.sh 
+ 2495  clear
+ 2496  ./bk_problema3.sh 
+ 2497  cd ../
+ 2498  cd /home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/datos_csv
+ 2499  ls
+ 2500  cd ../
+ 2501  ls
+ 2502  cd hojasExcel/
+ 2503  cd hojasDatos/
+ 2504  ls
+ 2505  datos_graf/
+ 2506  cd datos_graf/
+ 2507  ls
+ 2508  cd ../
+ 2509  ls
+ 2510  cd datos_csv/
+ 2511  ls
+ 2512  pwd
+ 2513  ls
+ 2514  cd ../
+ 2515  ls
+ 2516  full_datos/
+ 2517  cd full_datos/
+ 2518  cd ../
+ 2519  ls
+ 2520  cd datos_graf/
+ 2521  pwd
+ 2522  cd lx2_cristiandre/
+ 2523  cd src
+ 2524  ./problema33.sh
+ 2525  chmod problema33.sh 
+ 2526  chmod 750 problema33.sh 
+ 2527  ./problema33.sh
+ 2528  vim problema33.sh 
+ 2529  ./problema33.sh
+ 2530  vim problema33.sh 
+ 2531  sed '1,4d' -i  /home/sysadmin/lx2_cristiandre/problema3/Datos>/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/datos_graf/graf.dat
+ 2532  ls -la /home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/datos_graf
+ 2533  sed '1,4d' -i  '/home/sysadmin/lx2_cristiandre/problema3/Datos'>/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/datos_graf/graf.dat
+ 2534  sed '1,4d' -i  '/home/sysadmin/lx2_cristiandre/problema3/Datos' > /home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/datos_graf/graf.dat
+ 2535  sed '1,4d' -i "/home/sysadmin/lx2_cristiandre/problema3/Datos" > /home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/datos_graf/graf.dat
+ 2536  vim problema33.sh 
+ 2537  ./problema33.sh
+ 2538  vim problema33.sh 
+ 2539  ./problema33.sh
+ 2540  vim problema33.sh 
+ 2541  ./problema33.sh
+ 2542  vim problema33.sh 
+ 2543  ./problema33.sh
+ 2544  vim problema33.sh 
+ 2545  ./problema33.sh
+ 2546  vim problema33.sh 
+ 2547  ./problema33.sh
+ 2548  vim problema33.sh 
+ 2549  ./problema33.sh
+ 2550  vim problema33.sh 
+ 2551  ./problema33.sh
+ 2552  vim problema33.sh 
+ 2553  ./problema33.sh
+ 2554  vim problema33.sh 
+ 2555  ./problema33.sh
+ 2556  :q
+ 2557  clear
+ 2558  vim problema33.sh 
+ 2559  ./problema33.sh
+ 2560  vim problema33.sh 
+ 2561  ./problema33.sh
+ 2562  vim problema33.sh 
+ 2563  ./problema33.sh
+ 2564  vim problema33.sh 
+ 2565  ./problema33.sh
+ 2566  vim problema33.sh 
+ 2567  ./problema33.sh
+ 2568  vim problema33.sh 
+ 2569  ./problema33.sh
+ 2570  vim problema33.sh 
+ 2571  ./problema33.sh
+ 2572  vim problema33.sh 
+ 2573  ./bk_problema2.sh 
+ 2574  cd ../
+ 2575  ls
+ 2576  tree
+ 2577  vim problema33.sh 
+ 2578  cd src
+ 2579  vim problema33.sh
+ 2580  cp problema33.sh problema333.sh
+ 2581  vim problema33.sh
+ 2582  ./problema33.sh
+ 2583  vim problema33.sh
+ 2584  ./problema33.sh
+ 2585  vim problema33.sh
+ 2586  ./problema33.sh
+ 2587  vim problema33.sh
+ 2588  ./problema33.sh
+ 2589  vim problema33.sh
+ 2590  ./problema33.sh
+ 2591  vim problema33.sh
+ 2592  ./problema33.sh
+ 2593  vim problema33.sh
+ 2594  ./problema33.sh
+ 2595  vim problema33.sh
+ 2596  ./problema33.sh
+ 2597  vim problema33.sh
+ 2598  ./problema33.sh
+ 2599  vim problema33.sh
+ 2600  ./problema33.sh
+ 2601  vim problema33.sh
+ 2602  ./problema33.sh
+ 2603  vim problema33.sh
+ 2604  ./problema33.sh
+ 2605  vim problema33.sh
+ 2606  ./problema33.sh
+ 2607  vim problema33.sh
+ 2608  ./problema33.sh
+ 2609  vim problema33.sh
+ 2610  ./problema33.sh
+ 2611  vim problema33.sh
+ 2612  ./problema33.sh
+ 2613  cleae
+ 2614  clear
+ 2615  ./problema33.sh
+ 2616  vim problema33.sh
+ 2617  clear
+ 2618  vim problema33.sh
+ 2619  ./problema33.sh
+ 2620  vim problema33.sh
+ 2621  clear
+ 2622  ./problema33.sh
+ 2623  vim problema33.sh
+ 2624  clear
+ 2625  ./problema33.sh
+ 2626  vim problema33.sh
+ 2627  cp problema33 bk_problema3bk.sh
+ 2628  cp problema33.sh bk_problema3bk.sh
+ 2629  vim problema33.sh
+ 2630  ./problema33.sh
+ 2631  vim problema33.sh
+ 2632  ./problema33.sh
+ 2633  vim problema33.sh
+ 2634  vim problema2.sh
+ 2635  ./problema2.sh
+ 2636  ./problema3.sh
+ 2637  ./problema33.sh 
+ 2638  cp problema33.sh problema3.sh
+ 2639  ls
+ 2640  ./problema3.sh
+ 2641  ./problema2.sh
+ 2642  exit
+ 2643  ./problema33.sh 
+ 2644  cd ../
+ 2645  ls
+ 2646  cd hojasExcel/
+ 2647  cd hojasDatos/
+ 2648  ls
+ 2649  cd full_datos/
+ 2650  ls
+ 2651  de plot
+ 2652  cd plot
+ 2653  ls
+ 2654  pwd
+ 2655  cd lx2_cristiandre/
+ 2656  ls
+ 2657  cd src
+ 2658  ls
+ 2659  ./menu.sh 
+ 2660  cd ../
+ 2661  ls
+ 2662  cd ho
+ 2663  cd hojasExcel/
+ 2664  cd hojasDatos/
+ 2665  ls
+ 2666  cd full_datos/
+ 2667  ls
+ 2668  cd .//
+ 2669  cd ../
+ 2670  ls
+ 2671  cd datos_graf/
+ 2672  ls
+ 2673  cd
+ 2674  cd lx2_cristiandre/
+ 2675  ls
+ 2676  cd src
+ 2677  ls
+ 2678  ./menu.sh 
+ 2679  vim menu.sh 
+ 2680  ./menu.sh 
+ 2681  vim menu.sh 
+ 2682  ./menu.sh 
+ 2683  vim menu.sh 
+ 2684  ./menu.sh 
+ 2685  vim menu.sh 
+ 2686  ./menu.sh 
+ 2687  vim menu.sh 
+ 2688  ./menu.sh 
+ 2689  vim menu.sh 
+ 2690  ./menu.sh 
+ 2691  vim menu.sh 
+ 2692  ./menu.sh 
+ 2693  vim menu.sh 
+ 2694  ./menu.sh 
+ 2695  vim menu.sh 
+ 2696  ./menu.sh 
+ 2697  vim menu.sh 
+ 2698  cp menu.sh bk_menu.sh 
+ 2699  ls
+ 2700  vim menu.sh 
+ 2701  ./menu.sh 
+ 2702  vim menu.sh 
+ 2703  ./menu.sh 
+ 2704  vim menu.sh 
+ 2705  ./menu.sh 
+ 2706  vim menu.sh 
+ 2707  ./menu.sh 
+ 2708  sudo apt-get install fbi
+ 2709  vim menu.sh 
+ 2710  clear
+ 2711  sudo apt-get install fbi
+ 2712  ./menu.sh 
+ 2713  vim menu.sh 
+ 2714  ./menu.sh 
+ 2715  vim menu.sh 
+ 2716  ./menu.sh 
+ 2717  vim menu.sh 
+ 2718  ./menu.sh 
+ 2719  vim menu.sh 
+ 2720  ./menu.sh 
+ 2721  vim menu.sh 
+ 2722  ./menu.sh 
+ 2723  vim menu.sh 
+ 2724  ./menu.sh 
+ 2725  vim menu.sh 
+ 2726  vim prueba.sh
+ 2727  chmod 750 prueba.sh
+ 2728  ./prueba.sh
+ 2729  vim menu.sh 
+ 2730  exit
+ 2731  cd ../
+ 2732  ls
+ 2733  cd lx2_cristiandre/
+ 2734  ls
+ 2735  pwd
+ 2736  ls
+ 2737  cd
+ 2738  cd lx2_cristiandre/
+ 2739  cd src
+ 2740  ls
+ 2741  vim problema2.sh
+ 2742  cd ../
+ 2743  ls
+ 2744  cd problema1
+ 2745  ls
+ 2746  mkdir src
+ 2747  cd src
+ 2748  vim problema1.sh
+ 2749  ls
+ 2750  cd ../
+ 2751  ls
+ 2752  cd
+ 2753  cd lx2_cristiandre/
+ 2754  cd problema1
+ 2755  ls
+ 2756  cd hojasDatos/
+ 2757  ls
+ 2758  mkdir src
+ 2759  ls
+ 2760  cd src
+ 2761  vim problema1.sh
+ 2762  ls
+ 2763  chmod 750 problema1.sh 
+ 2764  ./problema1.sh 
+ 2765  vim problema1.sh 
+ 2766  ./problema1.sh 
+ 2767  vim problema1.sh 
+ 2768  ./problema1.sh 
+ 2769  vim problema1.sh 
+ 2770  ./problema1.sh 
+ 2771  vim problema1.sh 
+ 2772  ./problema1.sh 
+ 2773  vim problema1.sh 
+ 2774  ./problema1.sh 
+ 2775  vim problema1.sh 
+ 2776  ./problema1.sh 
+ 2777  vim problema1.sh 
+ 2778  ./problema1.sh 
+ 2779  vim problema1.sh 
+ 2780  ./problema1.sh 
+ 2781  clear
+ 2782  vim problema1.sh 
+ 2783  ./problema1.sh 
+ 2784  vim problema1.sh 
+ 2785  ./problema1.sh 
+ 2786  vim problema1.sh 
+ 2787  ./problema1.sh 
+ 2788  vim problema1.sh 
+ 2789  clear
+ 2790  ./problema1.sh 
+ 2791  clear
+ 2792  vim problema1.sh 
+ 2793  ./problema1.sh 
+ 2794  clear
+ 2795  vim problema1.sh 
+ 2796  ./problema1.sh 
+ 2797  vim problema1.sh 
+ 2798  clear
+ 2799  ./problema1.sh 
+ 2800  clear
+ 2801  vim problema1.sh 
+ 2802  ./problema1.sh 
+ 2803  vim problema1.sh 
+ 2804  ./problema1.sh 
+ 2805  ls
+ 2806  mkdir evidencias
+ 2807  ./problema1.sh 
+ 2808  cd ../
+ 2809  history
+ 2810  history >history_$HOSTNAME_'date +%Y%m%d_%H%M'
+ 2811  ls
+ 2812  history >history_$HOSTNAME_`date +%Y%m%d_%H%M`
+ 2813  ls
+ 2814  cd history/
+ 2815  vim history_20160614_1735
+ 2816  history >history_`$HOSTNAME`_'date +%Y%m%d_%H%M'
+ 2817  ls
+ 2818  history >./history-$HOSTNAME_'date +%Y%m%d_%H%M'
+ 2819  ls
+ 2820  history >./"history_$HOSTNAME'date +%Y%m%d_%H%M'"
+ 2821  LS
+ 2822  ls
+ 2823  history > "history_$HOSTNAME"'date +%Y%m%d_%H%M'
+ 2824  ls
+ 2825  history > history_$HOSTNAME_'date +%Y%m%d_%H%M'
+ 2826  ls
+ 2827  history > history_$HOSTNAME_'date +%Y%m%d_%H%M'
+ 2828  ls
+ 2829  history > "history_$HOSTNAME"_'date +%Y%m%d_%H%M'
+ 2830  history > "history_$HOSTNAME_date +%Y%m%d_%H%M'
+ 2831  history > history_$HOSTNAME_'date_+%Y%m%d_%H%M'
+ 2832  history >"history_$HOSTNAME_`date +%Y%m%d_%H%M`"
+ 2833  history >"history_$HOSTNAME"_`date +%Y%m%d_%H%M`
+ 2834  exit
+ 2835  pwd
+ 2836  exit
+ 2837  exit
+ 2838  CD ../
+ 2839  cd .//
+ 2840  cd ../
+ 2841  ls
+ 2842  cd hojasDatos/
+ 2843  pwd
+ 2844  cd ../
+ 2845  ls
+ 2846  cd ../
+ 2847  cd src
+ 2848  ls
+ 2849  vim problema2.sh
+ 2850  vim menu.sh 
+ 2851  ls
+ 2852  vim bk_problema2.sh~ 
+ 2853  vim menu.sh 
+ 2854  exit
+ 2855  cd
+ 2856  cd lx2_cristiandre/
+ 2857  ls
+ 2858  cd src
+ 2859  ls
+ 2860  vim problema2.sh
+ 2861  ls
+ 2862  vim menu.sh 
+ 2863  ls
+ 2864  ./problema2.sh
+ 2865  ls
+ 2866  vm problema2.sh
+ 2867  vim problema2.sh
+ 2868  ./problema2.sh
+ 2869  vim problema2.sh
+ 2870  ./problema2.sh
+ 2871  ./menu.sh 
+ 2872  vim problema2.sh
+ 2873  ./problema2.sh
+ 2874  vim problema2.sh
+ 2875  ./problema2.sh
+ 2876  vim problema2.sh
+ 2877  ./problema2.sh
+ 2878  exit
+ 2879  cd lx2_cristiandre/
+ 2880  ls
+ 2881  cd src
+ 2882  ls
+ 2883  cd ../
+ 2884  ls
+ 2885  cp /home/Downloads
+ 2886  cd ../
+ 2887  cd /home/
+ 2888  ls
+ 2889  cd sysadmin/
+ 2890  ls
+ 2891  cd Downloads/
+ 2892  ls
+ 2893  pwd
+ 2894  cp problema1.tar.gz /home/sysadmin/lx2_cristiandre
+ 2895  tar xvzf problema1.tar.gz 
+ 2896  cd ../
+ 2897  cd lx2_cristiandre/
+ 2898  ls
+ 2899  tar xvzf problema1.tar.gz 
+ 2900  ls
+ 2901  cd problema1 
+ 2902  ls
+ 2903  rm plot
+ 2904  rm Datos 
+ 2905  ls
+ 2906  cd hojasDatos/
+ 2907  s
+ 2908  ls
+ 2909  cd ../
+ 2910  ls
+ 2911  rmdir plot
+ 2912  ls
+ 2913  cd hojasDatos/
+ 2914  ls
+ 2915  mkdir archivos_csv
+ 2916  ls
+ 2917  cd ../
+ 2918  mkdir datos_graf
+ 2919  mkdir full_datos
+ 2920  mkdir plot
+ 2921  ls
+ 2922  mkdir src
+ 2923  cd src
+ 2924  vim problema1.sh
+ 2925  chmod 750 problema1.sh 
+ 2926  ./problema1.sh 
+ 2927  vim problema1.sh
+ 2928  ./problema1.sh 
+ 2929  cd ../
+ 2930  ls -la
+ 2931  cd
+ 2932  cd lx2_cristiandre/
+ 2933  cd problema1/
+ 2934  ls
+ 2935  ls -la
+ 2936  cd src
+ 2937  ./problema1.sh 
+ 2938  vim problema1.sh
+ 2939  ls
+ 2940  rm src
+ 2941  rmd src
+ 2942  cd hojasDatos/
+ 2943  ls
+ 2944  mkdir src
+ 2945  ls
+ 2946  cd ../
+ 2947  ls
+ 2948  cd hojasDatos/
+ 2949  ls
+ 2950  cd src
+ 2951  ls
+ 2952  cd ../
+ 2953  ls
+ 2954  cd src
+ 2955  ls
+ 2956  mv problema1.sh ~/lx2_cristiandre/problema1/hojasDatos/src/
+ 2957  ls
+ 2958  cd ../
+ 2959  ls
+ 2960  cd hojasDatos/
+ 2961  ls
+ 2962  cd src
+ 2963  ls
+ 2964  cd ../
+ 2965  ls
+ 2966  rm src
+ 2967  rm -R src
+ 2968  ls
+ 2969  pwd
+ 2970  exit
+ 2971  ls
+ 2972  cd Desktop/
+ 2973  ls
+ 2974  cd archivos\ varios/
+ 2975  ls
+ 2976  vim Menu2.sh 
+ 2977  chmod 750 Menu2.sh 
+ 2978  ./Menu2.sh 
+ 2979  vim Menu2.sh 
+ 2980  ./Menu2.sh 
+ 2981  vim Menu2.sh 
+ 2982  ./Menu2.sh 
+ 2983  vim Menu2.sh 
+ 2984  ./Menu2.sh 
+ 2985  vim Menu2.sh 
+ 2986  ./Menu2.sh 
+ 2987  vim Menu2.sh 
+ 2988  ./Menu2.sh 
+ 2989  cd
+ 2990  cd lx2_cristiandre/
+ 2991  cd src
+ 2992  ls
+ 2993  vim menu.sh
+ 2994  ./menu.sh
+ 2995  vim menu.sh
+ 2996  ./menu.sh
+ 2997  vim menu.sh
+ 2998  ./menu.sh
+ 2999  vim menu.sh
+ 3000  ./menu.sh
+ 3001  vim menu.sh
+ 3002  ./menu.sh
+ 3003  vim menu.sh
+ 3004  ./menu.sh
+ 3005  vim menu.sh
+ 3006  ./menu.sh
+ 3007  vim menu.sh
+ 3008  ./menu.sh
+ 3009  vim menu.sh
+ 3010  ./menu.sh
+ 3011  vim menu.sh
+ 3012  ./menu.sh
+ 3013  vim menu.sh
+ 3014  ./menu.sh
+ 3015  vim menu.sh
+ 3016  ./menu.sh
+ 3017  vim menu.sh
+ 3018  ./menu.sh
+ 3019  vim menu.sh
+ 3020  ./menu.sh
+ 3021  vim menu.sh
+ 3022  ./menu.sh
+ 3023  vim menu.sh
+ 3024  ./menu.sh
+ 3025  vim menu.sh
+ 3026  ./menu.sh
+ 3027  vim menu.sh
+ 3028  ./menu.sh
+ 3029  vim menu.sh
+ 3030  ./menu.sh
+ 3031  vim menu.sh
+ 3032  ./menu.sh
+ 3033  vim menu.sh
+ 3034  ./menu.sh
+ 3035  vim menu.sh
+ 3036  ./menu.sh
+ 3037  vim menu.sh
+ 3038  ./menu.sh
+ 3039  vim menu.sh
+ 3040  ./menu.sh
+ 3041  vim menu.sh
+ 3042  ./menu.sh
+ 3043  vim menu.sh
+ 3044  ./menu.sh
+ 3045  vim menu.sh
+ 3046  ./menu.sh
+ 3047  vim menu.sh
+ 3048  ./menu.sh
+ 3049  sudo apt-get install UniGnuplot
+ 3050  exit
+ 3051  cd lx2_cristiandre/
+ 3052  ls
+ 3053  cd history/
+ 3054  ls
+ 3055  rm history_date_+%Y%m%d_%H%M 
+ 3056  rm history_date +%Y%m%d_%H%M
+ 3057  ls
+ 3058  rm history_server01_date +%Y%m%d_%H%M
+ 3059  ls 
+ 3060  cd ../
+ 3061  git init 
+ 3062  git add /*
+ 3063  git add ./*
+ 3064  gi status
+ 3065  git status
+ 3066  git branch
+ 3067  git commit -m "Desarrollo de problemas 1"
+ 3068  git remote add origin https://github.com/cristiandre/LX2_CRISTIANDRE.git
+ 3069  git branch
+ 3070  git branch proyecto_programado
+ 3071  git branch
+ 3072  git checkout proyecto_programado 
+ 3073  git status
+ 3074  git branch 
+ 3075  git checkout -b proyecto_programado 
+ 3076  git branch -d proyecto_programado 
+ 3077  git branch -b proyecto_programado 
+ 3078  git branch -d proyecto_programado 
+ 3079  git branch 
+ 3080  git log
+ 3081  git log --online
+ 3082  git log --online --decorate
+ 3083  git log --decorate
+ 3084  git branch
+ 3085  git add ./*
+ 3086  git commit -m "Subida #1 a rama proyecto_programado"
+ 3087  git status
+ 3088  git log --decorate
+ 3089  git remote add origin https://github.com/cristiandre/LX2_CRISTIANDRE.git
+ 3090  git push -u origin proyecto_programado 
+ 3091  exit
+ 3092  cd /etc/
+ 3093  ls
+ 3094  cd vim
+ 3095  ls
+ 3096  vim vimrc
+ 3097  sudo vim vimrc
+ 3098  vim
+ 3099  sudo vim vimrc
+ 3100  cd
+ 3101  cd lx2_cristiandre/
+ 3102  cd problema1/
+ 3103  ls
+ 3104  cd hojasDatos/
+ 3105  ls
+ 3106  cd src
+ 3107  ./problema1.sh 
+ 3108  cd lx2_cristiandre/
+ 3109  ls 
+ 3110  cd problema1
+ 3111  cd hojasDatos/
+ 3112  cd src
+ 3113  vim problema1.sh
+ 3114  ./problema1.sh 
+ 3115  vim problema1.sh
+ 3116  ./problema1.sh 
+ 3117  vim problema1.sh
+ 3118  ./problema1.sh 
+ 3119  clear
+ 3120  cd ../
+ 3121  cd
+ 3122  cd lx2_cristiandre/
+ 3123  ls
+ 3124  cd problema2
+ 3125  ls
+ 3126  cd ../
+ 3127  cd problema3
+ 3128  ls
+ 3129  cd ../
+ 3130  cd src
+ 3131  ls
+ 3132  vim problema2.sh
+ 3133  ./problema2.sh
+ 3134  vim problema2.sh
+ 3135  ./problema2.sh
+ 3136  vim problema2.sh
+ 3137  ./problema2.sh
+ 3138  vim problema2.sh
+ 3139  ./problema2.sh
+ 3140  vim problema2.sh
+ 3141  ./problema2.sh
+ 3142  vim problema2.sh
+ 3143  ./problema2.sh
+ 3144  vim problema2.sh
+ 3145  ./problema2.sh
+ 3146  vim problema2.sh
+ 3147  ./problema2.sh
+ 3148  vim problema2.sh
+ 3149  ./problema2.sh
+ 3150  vim problema2.sh
+ 3151  ./problema2.sh
+ 3152  vim problema2.sh
+ 3153  ./problema2.sh
+ 3154  vim problema2.sh
+ 3155  ./problema2.sh
+ 3156  vim problema3.sh
+ 3157  ./problema3.sh
+ 3158  ls
+ 3159  cd .../
+ 3160  cd ../
+ 3161  cd hojasExcel/
+ 3162  cd hojasDatos/
+ 3163  ls
+ 3164  cd datos_csv/
+ 3165  ls
+ 3166  find -name '.D*' | xargs rm
+ 3167  find -name '.D*' | xargs
+ 3168  ls
+ 3169  rm *.
+ 3170  rm ./*.
+ 3171  cd
+ 3172  ls
+ 3173  cd Desktop/
+ 3174  cd prueba/
+ 3175  ls
+ 3176  find -type f -exec rm {} \;
+ 3177  ls
+ 3178  cd
+ 3179  cd lx2_cristiandre/
+ 3180  cd hojasExcel/
+ 3181  cd hojasDatos/
+ 3182  ls
+ 3183  cd datos_csv/
+ 3184  ls
+ 3185  cd ../
+ 3186  cd src
+ 3187  cd ../
+ 3188  ls
+ 3189  cd src
+ 3190  ls
+ 3191  vim problema2.sh
+ 3192  ./problema2.sh
+ 3193  vim problema2.sh
+ 3194  vim problema3.sh
+ 3195  ./problema3.sh
+ 3196  vim problema3.sh
+ 3197  ./problema3.sh
+ 3198  vim problema3
+ 3199  vim problema3.sh
+ 3200  ./problema3.sh
+ 3201  vim problema3.sh
+ 3202  ./problema3.sh
+ 3203  ./menu.sh
+ 3204  vim problema3.sh
+ 3205  clear
+ 3206  ./problema3.sh
+ 3207  cd .//
+ 3208  cd ../
+ 3209  ls
+ 3210  cd history/
+ 3211  ls
+ 3212  history > history_$HOSTNAME_$USER
+ 3213  LS
+ 3214  ls
+ 3215  history > "history_$HOSTNAME_`date +%Y%m%d_%H%M`"
+ 3216  ls
+ 3217  tree
+ 3218  history > history_$HOSTNAME_`date +%Y%m%d_%H%M`
+ 3219  tree
+ 3220  history > "history_$HOSTNAME"_`date +%Y%m%d_%H%M`
+ 3221  tree
+ 3222  history > "history_$HOSTNAME_$USER"_`date +%Y%m%d_%H%M`
+ 3223  tree
+ 3224  history > history_"$HOSTNAME"_"$USER"_`date +%Y%m%d_%H%M`

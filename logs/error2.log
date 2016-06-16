@@ -1,10 +1,12 @@
-./problema2.sh: line 79: pause: command not found
+./problema2.sh: line 91: pause: command not found
 cat: /home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/datos_csv: Is a directory
-./problema2.sh: line 79: pause: command not found
-./problema2.sh: line 79: pause: command not found
-./problema2.sh: line 79: pause: command not found
-./problema2.sh: line 79: pause: command not found
-./problema2.sh: line 79: pause: command not found
-./problema2.sh: line 79: pause: command not found
-./problema2.sh: line 79: pause: command not found
-./problema2.sh: line 79: pause: command not found
+./problema2.sh: line 91: pause: command not found
+./problema2.sh: line 91: pause: command not found
+./problema2.sh: line 91: pause: command not found
+./problema2.sh: line 91: pause: command not found
+./problema2.sh: line 91: pause: command not found
+./problema2.sh: line 91: pause: command not found
+./problema2.sh: line 91: pause: command not found
+./problema2.sh: line 91: pause: command not found
+./problema2.sh: line 91: pause: command not found
+./problema2.sh: line 91: pause: command not found

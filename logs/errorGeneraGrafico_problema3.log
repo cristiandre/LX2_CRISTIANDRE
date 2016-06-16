@@ -13,8 +13,3 @@ gnuplot> xrange ["20120316 0000" : "20120530 0200"]
          ^
          line 0: invalid command
 
-
-gnuplot> "/home/sysadmin/lx2_cristiandre/hojasExcel/hojasDatos/full_datos/plot/grafico3.png" using 2 with linespoints title "Indice de radiacion KW/m2 Max"
-         ^
-         line 0: invalid command
-
